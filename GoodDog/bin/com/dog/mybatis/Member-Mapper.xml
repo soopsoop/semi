@@ -22,9 +22,9 @@
 		select
 		* 
 		from member
-		where id is not null
+		where MEM_ID is not null
 		<include refid="search" />
-		order by regDate desc
+		order by MEM_JOIN_DATE desc
 	</select>
 	<select id="selectMemberListCount" resultType="int">
 		select
@@ -37,7 +37,7 @@
 		select
 		*
 		from member
-		where id=#{id}
+		where MEM_ID=#{memId}
 	</select>
 	
 	<update id="insertMember" parameterType="member">

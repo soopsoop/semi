@@ -4,13 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
   <configuration>
-  	<properties resource="com/jsp/properties/db.properties" />
-  	
+  
+  	<properties resource="com/dog/properties/db.properties" />
+  	<settings>
+    <!-- 카멜케이스 규칙으로 변환 -->
+      <setting name="mapUnderscoreToCamelCase" value="true"/>
+   </settings>
   	<typeAliases>
   		<typeAlias type="java.lang.String" alias="str" />
 		<typeAlias type="java.lang.Integer" alias="int" />
 		
-		<typeAlias type="com.jsp.dto.MemberVO"  alias="member"/>
+		<typeAlias type="com.dog.vo.member.MemberVO"  alias="member"/>
   	</typeAliases>
   	
   	
@@ -30,11 +34,14 @@
 		</environment>
 	</environments>
 	
-  	
+  
   	
   	<mappers>
-		<mapper resource="com/jsp/mybatis/mappers/Member-Mapper.xml"/>
+		<mapper resource="com/dog/mybatis/Member-Mapper.xml"/>
 	</mappers>
+	
+	
+
   </configuration>
   
   
