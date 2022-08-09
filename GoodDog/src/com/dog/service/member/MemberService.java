@@ -5,13 +5,15 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import com.dog.exception.InvalidPasswordException;
+import com.dog.exception.NotFoundIDException;
 import com.dog.vo.member.MemberVO;
 
 
 	public interface MemberService {
 		
 		// 로그인
-		void login(String memId, String memPw) throws SQLException;
+		void login(String memId, String memPw) throws SQLException,NotFoundIDException, InvalidPasswordException;
 		
 		// 회원정보조회
 		MemberVO getMember(String id) throws SQLException;

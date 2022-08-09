@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.dao.member.MemberDAO;
+import com.dog.exception.InvalidPasswordException;
+import com.dog.exception.NotFoundIDException;
 import com.dog.vo.member.MemberVO;
 
 
@@ -28,14 +30,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public void login(String memId, String memPw) throws SQLException/*, NotFoundIDException, InvalidPasswordException*/ {
+	public void login(String memId, String memPw) throws SQLException, NotFoundIDException, InvalidPasswordException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			MemberVO member = memberDAO.selectMemberById(session, memId);
-//			if (member == null) 
-//				throw new NotFoundIDException();
-//			if (!pwd.equals(member.getPwd()))
-//				throw new InvalidPasswordException();
+			if (member == null) 
+				throw new NotFoundIDException();
+			if (!memPw.equals(member.getMemPw()))
+				throw new InvalidPasswordException();
 		} finally {
 			session.close();
 		}

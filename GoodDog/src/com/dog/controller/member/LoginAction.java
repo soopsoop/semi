@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
 
 import com.dog.action.Action;
+import com.dog.exception.InvalidPasswordException;
+import com.dog.exception.NotFoundIDException;
 import com.dog.service.member.MemberService;
 
 
@@ -39,12 +41,12 @@ public class LoginAction implements Action {
          e.printStackTrace();
          throw e;
       }
-//      catch(InvalidPasswordException | NotFoundIDException e) {
-//         request.setAttribute("message", e.getMessage());
-//         
-//         url = "common/loginFail";
-//      }
-//      
+      catch(InvalidPasswordException | NotFoundIDException e) {
+         request.setAttribute("message", e.getMessage());
+         
+         url = "common/loginFail";
+      }
+      
       return url;
    }
 
