@@ -12,7 +12,9 @@
 
 <body>
   
-
+<c:if test="${!empty loginUser }">
+	로그인중입니다...
+</c:if>
 
 <!-- handlebars -->
 
