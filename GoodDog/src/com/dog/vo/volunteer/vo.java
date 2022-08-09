@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class vo {
 	
-	커밋 테스트222
+	커밋 테스트333
 	private String volTitle;
 	private Date volDate;
 	private String volType;
