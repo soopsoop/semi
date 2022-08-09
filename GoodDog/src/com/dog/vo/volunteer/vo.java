@@ -3,7 +3,7 @@ package com.dog.vo.volunteer;
 import java.util.Date;
 
 public class vo {
-	
+	커밋 테스트
 	private String volTitle;
 	private Date volDate;
 	private String volType;
