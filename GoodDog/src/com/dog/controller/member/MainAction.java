@@ -9,7 +9,7 @@ public class MainAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "common/indexPage";
+		String url = "/common/indexPage";
 		
 		return url;
 	}
