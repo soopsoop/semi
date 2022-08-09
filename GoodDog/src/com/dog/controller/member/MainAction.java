@@ -3,7 +3,9 @@ package com.dog.controller.member;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MainHandler implements Handler {
+import com.dog.action.Action;
+
+public class MainAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
