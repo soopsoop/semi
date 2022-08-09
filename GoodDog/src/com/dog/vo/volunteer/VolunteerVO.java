@@ -2,9 +2,9 @@ package com.dog.vo.volunteer;
 
 import java.util.Date;
 
-public class vo {
+public class VolunteerVO {
 	
-	커밋 테스트333444
+	//커밋 테스트333444
 	private String volTitle;
 	private Date volDate;
 	private String volType;
