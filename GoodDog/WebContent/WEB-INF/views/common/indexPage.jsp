@@ -11,9 +11,11 @@
 </head>
 
 <body>
-  
+
 <c:if test="${!empty loginUser }">
-	로그인중입니다...
+	    ${ loginUser.memName } 님 환영합니다~
+	    
+		
 </c:if>
 
 <!-- handlebars -->

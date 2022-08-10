@@ -43,8 +43,8 @@ public class LoginAction implements Action {
       }
       catch(InvalidPasswordException | NotFoundIDException e) {
          request.setAttribute("message", e.getMessage());
-         
-         url = "common/loginFail";
+         	System.out.println(e.getMessage());
+        url = "/common/loginFail";
       }
       
       return url;
