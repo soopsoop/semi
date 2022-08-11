@@ -105,16 +105,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		               	</tr>
 		     			<c:if test="${!empty memberList }" >
 		            		<c:forEach items="${memberList }" var="member">		     						     				
-		     					 <tr  onclick="OpenWindow('detail.do?id=${member.id}','회원상세',700,800);" style="cursor:pointer;">
+		     					 <tr  onclick="OpenWindow('detail.do?id=${member.memId}','회원상세',700,800);" style="cursor:pointer;">
 		            		  	   	<td style="margin:0;padding:0;padding-top:5px;">
-		            		  	   		<span class="manPicture" data-id="${member.id }"
+		            		  	   		<span class="manPicture" data-id="${member.memId }"
 		            		  	   		      style="display:block;width:40px;height:40px;margin:0 auto;"></span></td>
-		            		  	   	<td>${member.id }</td>
-				              		<td>${member.pwd }</td>
-				              		<td>${member.name }
-				              		<td>${member.email }</td>
-		            		  	   	<td>${member.phone.replace('-','')  }</td>
-		            		  	   	<td><fmt:formatDate value="${member.regDate }" pattern="yyyy-MM-dd"/></td>
+		            		  	   	<td>${member.memId }</td>
+				              		<td>${member.memPw }</td>
+				              		<td>${member.memName }
+				              		<td>${member.memMail }</td>
+		            		  	   	<td>${member.memPhone.replace('-','')  }</td>
+		            		  	   	<td><fmt:formatDate value="${member.memJoinDate }" pattern="yyyy-MM-dd"/></td>
 		            		  	  </tr>	
 		     					
 		     				</c:forEach>
