@@ -61,11 +61,11 @@ public class MemberVO {
 	public void setMemAddr(String memAddr) {
 		this.memAddr = memAddr;
 	}
-	public Date getMemJoiDate() {
+	public Date getMemJoinDate() {
 		return memJoinDate;
 	}
-	public void setMemJoiDate(Date memJoiDate) {
-		this.memJoinDate = memJoiDate;
+	public void setMemJoiDate(Date memJoinDate) {
+		this.memJoinDate = memJoinDate;
 	}
 	
 	

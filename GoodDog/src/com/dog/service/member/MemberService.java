@@ -5,34 +5,26 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import com.dog.command.Criteria;
 import com.dog.vo.member.MemberVO;
 
 
 	public interface MemberService {
 		
-		// 로그인
-		void login(String memId, String memPw) throws SQLException;
 		
-		// 회원정보조회
-		MemberVO getMember(String id) throws SQLException;
+		//void login(String memId, String memPw) throws SQLException;
+		Map<String,Object> getMemberList(Criteria cri) throws SQLException;
 		
-		// 회원리스트조회
-		List<MemberVO> getMemberList() throws SQLException;
-
+		MemberVO getMember(String memId) throws SQLException;
 		
-		// 회원 등록
-		public void regist(MemberVO member) throws SQLException;
+		public void regist(MemberVO member) throws Exception;
 		
-		// 회원 수정
-		void modify(MemberVO member) throws SQLException;
+		public void modify(MemberVO member) throws Exception;
 		
-		// 회원 삭제
-		void remove(String id) throws SQLException;
+		public void remove(String memId) throws Exception;
 		
-		// 회원 정지
-		void disabled(String id) throws SQLException;
+		//public void disabled(String id) throws SQLException;
 		
-		// 회원 활성화
-		void enabled(String id) throws SQLException;
+		//public void enabled(String id) throws SQLException;
 
 }

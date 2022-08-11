@@ -28,7 +28,7 @@ public class DispatcherServlet extends HttpServlet {
 
 			System.out.println("[DispatcherServlet] handlerMapper 가 준비되었습니다.");
 		} catch (Exception e) {
-			System.out.println("[DispatcherServlet] handlerMapper 가 실패했습니다.");
+			System.out.println("[DispatcherServlet] handlerMapper 가 준비되었습니다.");
 			e.printStackTrace();
 		}
 		
@@ -46,19 +46,19 @@ public class DispatcherServlet extends HttpServlet {
 	private void requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 사용자 URI 검출
-		String command = request.getRequestURI(); // contextPath 포함.
-		if (command.indexOf(request.getContextPath()) == 0) { // contextPath 삭제
+		// �궗�슜�옄 URI 寃�異�
+		String command = request.getRequestURI(); // contextPath �룷�븿.
+		if (command.indexOf(request.getContextPath()) == 0) { // contextPath �궘�젣
 			command = command.substring(request.getContextPath().length());
 		}
 		
-		//commandHandler 실행 (HandlerMapper 의뢰  action 할당)
+		//commandHandler �떎�뻾 (HandlerMapper �쓽猶�  action �븷�떦)
 		Action action = null;
 		String view = null;
 		
 		if (handlerMapper != null){
 			action = handlerMapper.getAction(command);
-			if(action!=null) { //올바른 요청
+			if(action!=null) { //�삱諛붾Ⅸ �슂泥�
 				
 				try {
 					view = action.process(request, response);
@@ -72,7 +72,7 @@ public class DispatcherServlet extends HttpServlet {
 					
 				} catch (Exception e) {					
 					e.printStackTrace();
-					//Exception 처리
+					//Exception 泥섎━
 					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);					
 				}
 			}else {

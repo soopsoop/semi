@@ -41,10 +41,10 @@
 	</select>
 	
 	<update id="insertMember" parameterType="member">
-		insert into 
-		member(id, pwd, email, phone,picture,name,authority)
-		values(#{id},#{pwd},#{email},#{phone},#{picture},#{name},#{authority})
-	</update>
+        insert into 
+        member(mem_Id, mem_Pw, mem_Name, mem_Gender, mem_RegNo, mem_Mail, mem_Phone, mem_Addr, mem_Join_Date)
+        values(#{memId},#{memPw},#{memName},#{memGender},#{memRegNo},#{memMail},#{memPhone},#{memAddr}, sysdate)
+    </update>
 	
 	<update id="updateMember" parameterType="member">
 		update member 
@@ -62,6 +62,6 @@
 	<update id="deleteMember" parameterType="str" >
 		delete 
 		from member 
-		where id=#{id}		
+		where MEM_ID=#{memId}		
 	</update>
 </mapper>
