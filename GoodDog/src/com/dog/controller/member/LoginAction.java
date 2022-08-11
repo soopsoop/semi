@@ -44,7 +44,7 @@ public class LoginAction implements Action {
       catch(InvalidPasswordException | NotFoundIDException e) {
          request.setAttribute("message", e.getMessage());
          	System.out.println(e.getMessage());
-        url = "/common/loginFail";
+			url = "/common/loginForm"; 
       }
       
       return url;
