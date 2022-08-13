@@ -1,0 +1,33 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Volunteer-Mapper">
+
+	<select id="selectVolWantMemberList" resultType="volunteer">
+		select
+		* 
+		from VOL_WANT
+		where VOL_NO is not null
+	</select>
+
+	<select id="selectVolWantMemberListCount" resultType="int">
+		select
+		count(*) 
+		from VOL_WANT
+		where VOL_NO is not null
+	</select>
+	
+	<select id="inserVol" resultType="volunteer">
+		select
+		* 
+		from VOL_WANT
+	</select>
+	
+	<select id="insertVolWantMember" resultType="volunteer">
+		select
+		* 
+		from VOL_WANT
+	</select>
+
+</mapper>
