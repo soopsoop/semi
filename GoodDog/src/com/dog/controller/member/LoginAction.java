@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.exceptions.PersistenceException;
+
 import com.dog.action.Action;
 import com.dog.exception.InvalidPasswordException;
 import com.dog.exception.NotFoundIDException;
@@ -46,7 +48,9 @@ public class LoginAction implements Action {
          	System.out.println(e.getMessage());
 			url = "/common/loginForm"; 
       }
-      
+      catch(PersistenceException e) {
+    	  url ="redirect:";
+      }
       return url;
    }
 
