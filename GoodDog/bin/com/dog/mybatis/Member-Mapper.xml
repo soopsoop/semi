@@ -64,4 +64,10 @@
 		from member 
 		where id=#{id}		
 	</update>
+	
+	<select id="findMemberById" parameterType="str" resultType="member">
+	    SELECT mem_id 
+	    FROM member 
+	    WHERE MEM_NAME=#{memName}, MEM_REG_NO=#{memRegNo}, MEM_PHONE=#{memPhone}
+    </select>
 </mapper>

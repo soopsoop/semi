@@ -3,7 +3,6 @@ package com.dog.service.member;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import com.dog.exception.InvalidPasswordException;
 import com.dog.exception.NotFoundIDException;
