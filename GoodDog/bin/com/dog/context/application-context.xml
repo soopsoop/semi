@@ -15,6 +15,10 @@
 	
 	<bean id="memberDAO"  class="com.dog.dao.member.MemberDAOImpl" />
 			
+	<bean id="volunteerDAO" class="com.dog.dao.volunteer.VolunteerDAOImpl">
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory"/>
+	</bean>
+	
 	<!-- Service -->
 	<bean id="dogService" class="com.dog.service.happydog.DogServiceImpl" >
 		<property name="dogDAO" ref-value="dogDAO" /> 
@@ -23,6 +27,10 @@
 	<bean id="memberService" class="com.dog.service.member.MemberServiceImpl">
 		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
 		<property name="memberDAO" ref-value="memberDAO" />
+	</bean>
+	
+	<bean id="volunteerService" class="com.dog.service.volunteer.VolunteerServiceImpl">
+		<property name="volunteerDAO" ref-value="volunteerDAO"/>
 	</bean>
 	
 </beans>
