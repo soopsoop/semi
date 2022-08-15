@@ -46,19 +46,19 @@ public class DispatcherServlet extends HttpServlet {
 	private void requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// �궗�슜�옄 URI 寃�異�
+		
 		String command = request.getRequestURI(); // contextPath �룷�븿.
 		if (command.indexOf(request.getContextPath()) == 0) { // contextPath �궘�젣
 			command = command.substring(request.getContextPath().length());
 		}
 		
-		//commandHandler �떎�뻾 (HandlerMapper �쓽猶�  action �븷�떦)
+		
 		Action action = null;
 		String view = null;
 		
 		if (handlerMapper != null){
 			action = handlerMapper.getAction(command);
-			if(action!=null) { //�삱諛붾Ⅸ �슂泥�
+			if(action!=null) { 
 				
 				try {
 					view = action.process(request, response);
@@ -72,7 +72,7 @@ public class DispatcherServlet extends HttpServlet {
 					
 				} catch (Exception e) {					
 					e.printStackTrace();
-					//Exception 泥섎━
+					
 					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);					
 				}
 			}else {

@@ -32,8 +32,7 @@ public class HandlerMapper {
 			Class<?> actionClass = Class.forName(actionClassName);
 			Action commandAction = (Action)actionClass.newInstance();
 			
-			//�쓽議댁＜�엯(service, dao.......)
-			//�쓽議댁꽦 �솗�씤 諛� 議곕┰
+		
 			Method[] methods = actionClass.getMethods();
 			for (Method method : methods) {
 				if (method.getName().indexOf("set")==0) {

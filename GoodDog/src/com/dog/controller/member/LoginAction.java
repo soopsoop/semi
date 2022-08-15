@@ -24,11 +24,11 @@ public class LoginAction implements Action {
 
       String url = "redirect:/index.do";
       
-      //입력
+      //�엯�젰
       String memId = request.getParameter("id");
       String memPw = request.getParameter("pwd");
       
-      //처리
+      //泥섎━
       try {
          memberService.login(memId, memPw);
          

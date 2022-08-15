@@ -105,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		               	</tr>
 		     			<c:if test="${!empty memberList }" >
 		            		<c:forEach items="${memberList }" var="member">		     						     				
-		     					 <tr  onclick="OpenWindow('detail.do?id=${member.memId}','회원상세',700,800);" style="cursor:pointer;">
+		     					 <tr  onclick="OpenWindow('detail.do?memId=${member.memId}','회원상세',700,800);" style="cursor:pointer;">
 		            		  	   	<td style="margin:0;padding:0;padding-top:5px;">
 		            		  	   		<span class="manPicture" data-id="${member.memId }"
 		            		  	   		      style="display:block;width:40px;height:40px;margin:0 auto;"></span></td>

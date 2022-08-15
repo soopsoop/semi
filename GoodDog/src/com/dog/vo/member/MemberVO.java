@@ -4,15 +4,17 @@ package com.dog.vo.member;
 import java.util.Date;
 
 public class MemberVO {
-	private String memId;			// ¾ÆÀÌµð
-	private String memPw;			// ÆÐ½º¿öµå
-	private String memName;		// ÀÌ¸§
+	private String memId;			// ï¿½ï¿½ï¿½Ìµï¿½
+	private String memPw;			// ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String memName;		// ï¿½Ì¸ï¿½
 	private String memGender;
 	private String memRegNo;
 	private String memMail;
-	private String memPhone;		// ÀüÈ­¹øÈ£
-	private String memAddr;		// ÁÖ¼Ò
-	private Date memJoinDate;		// µî·ÏÀÏ
+	private String memPhone;		// ï¿½ï¿½È­ï¿½ï¿½È£
+	private String memAddr;		// ï¿½Ö¼ï¿½
+	private Date memJoinDate;		// ï¿½ï¿½ï¿½ï¿½ï¿½
+	
+	public MemberVO() {}
 	public String getMemId() {
 		return memId;
 	}
@@ -67,6 +69,7 @@ public class MemberVO {
 	public void setMemJoiDate(Date memJoinDate) {
 		this.memJoinDate = memJoinDate;
 	}
+
 	
 	
 }

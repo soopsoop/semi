@@ -49,14 +49,14 @@
 	<update id="updateMember" parameterType="member">
 		update member 
 		set 
-		pwd=#{pwd},email=#{email},phone=#{phone},name=#{name},
-		picture=#{picture},enabled=1
+		mem_Pw=#{memPw},mem_Mail=#{memMail},mem_Phone=#{memPhone},mem_Name=#{memName}
+	
 		
-		<if test="authority != null">
+<!-- 		<if test="authority != null">
 			,authority=#{authority}
-		</if>
+		</if> -->
 		
-		where id=#{id}
+		where MEM_ID=#{memId}
 	</update>
 	
 	<update id="deleteMember" parameterType="str" >
