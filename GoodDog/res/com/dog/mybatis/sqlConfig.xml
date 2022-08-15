@@ -16,6 +16,7 @@
 		<typeAlias type="com.dog.vo.happydog.DogVO"  alias="dog"/>
 		<typeAlias type="com.dog.vo.member.MemberVO"  alias="member"/>
 		<typeAlias type="com.dog.vo.volunteer.VolunteerVO" alias="volunteer"/>
+		<typeAlias type="com.dog.vo.admin.AdminVO"  alias="admin"/>
   	</typeAliases>
   	
   	
@@ -41,6 +42,7 @@
 		<mapper resource="com/dog/mybatis/mappers/Member-Mapper.xml"/>
 		<mapper resource="com/dog/mybatis/mappers/Dog-Mapper.xml"/>
 		<mapper resource="com/dog/mybatis/mappers/Volunteer-Mapper.xml"/>
+		<mapper resource="com/dog/mybatis/mappers/AdminMapper.xml"/>
 	</mappers>
 	
 	

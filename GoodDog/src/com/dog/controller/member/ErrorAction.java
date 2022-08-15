@@ -5,13 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dog.action.Action;
 
-public class MainAction implements Action {
+public class ErrorAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/common/indexPage";
-		
-		return url;
+		System.out.println(1/0);
+		return null;
 	}
 
 }

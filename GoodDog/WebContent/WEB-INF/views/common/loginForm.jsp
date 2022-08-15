@@ -34,13 +34,15 @@
 		 <div class="card-body login-card-body">
 			<p class="login-box-msg">Sign in to start your session</p>
 
-			<form action="<%=request.getContextPath() %>/login.do"	method="post">
+			<form action="<%=request.getContextPath() %>/login.do"	method="post" name="log_frm">
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" name="id" placeholder="아이디를 입력하세요." value="${memId}">
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+					
 				</div>
 				<div class="form-group has-feedback">
 					<input type="password" class="form-control" name="pwd" placeholder="패스워드를 입력하세요."  value="">
+					  <span id="pw_check_msg" ></span> 
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="row">
@@ -52,7 +54,7 @@
 					</div>
 					<!-- /.col -->
 					<div class="col-sm-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
+						<input type="button" onclick="infoConfirm()" class="btn btn-primary btn-block btn-flat">로그인</button>
 					</div>
 					<!-- /.col -->
 				</div>
@@ -69,7 +71,24 @@
 	</div>
 	<!-- /.login-box -->
 	
-
+<script>
+function infoConfirm() {
+	if(document.log_frm.id.value.length == 0){
+		document.getElementById('pw_check_msg').innerHTML = "아이디를 입력해주세요!";
+/* 		alert("아이디를 입력해주세요!") */
+		log_frm.id.focus();
+		return;
+	}
+	if(document.log_frm.pwd.value.length == 0){
+/* 		alert("비밀번호를 입력해주세요!") */
+		document.getElementById('pw_check_msg').innerHTML = "비밀번호를 입력해주세요!";
+		log_frm.pwd.focus();
+		return;
+	}
+	document.log_frm.submit();
+}
+	document.getElementById('pw_check_msg').innerHTML = "${message}";
+</script>
 
 
 <!-- jQuery -->
