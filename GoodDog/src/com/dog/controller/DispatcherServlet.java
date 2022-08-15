@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.dog.action.Action;
 
 
-
 public class DispatcherServlet extends HttpServlet {
 	private HandlerMapper handlerMapper;
 	
@@ -31,9 +30,7 @@ public class DispatcherServlet extends HttpServlet {
 			System.out.println("[DispatcherServlet] handlerMapper 가 실패했습니다.");
 			e.printStackTrace();
 		}
-		
 	}
-	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		requestPro(request, response);
@@ -73,12 +70,15 @@ public class DispatcherServlet extends HttpServlet {
 				} catch (Exception e) {					
 					e.printStackTrace();
 					//Exception 처리
-					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);					
+					System.out.println("view is null");
+					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);		
 				}
 			}else {
+				System.out.println("action is null");
 				response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			}	
 		}else {
+			System.out.println("hanler is null");
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}
 		

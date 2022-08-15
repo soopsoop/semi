@@ -13,6 +13,14 @@ public interface VolunteerDAO {
 	int selectVolWantMemberListCount(Criteria cri)throws SQLException;
 	
 	public void insertVol(VolunteerVO volVo) throws SQLException;
-	
+
 	public void insertVolWantMember(String memId) throws SQLException;
+	
+	List<VolunteerVO> selectVolList(Criteria cri) throws SQLException;
+	
+	int selectVolListCount(Criteria cri) throws SQLException;
+	
+	VolunteerVO selectVolunteerByTitle(String volTilte) throws SQLException;
+	
+	
 }

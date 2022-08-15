@@ -27,7 +27,8 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 			int limit = cri.getPerPageNum();
 			RowBounds rowBounds = new RowBounds(offset, limit);
 
-			List<MemberVO> VolWantMemberList = session.selectList("Volunteer-Mapper.selectVolWantMemberList", cri, rowBounds);
+			List<MemberVO> VolWantMemberList = session.selectList("Volunteer-Mapper.selectVolWantMemberList", cri,
+					rowBounds);
 
 			return VolWantMemberList;
 		} catch (Exception e) {
@@ -42,14 +43,15 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	public int selectVolWantMemberListCount(Criteria cri) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			
-			int count = session.selectOne("Volunteer-Mapper.selectVolWantMemberListCount",cri);			
+
+			int count = session.selectOne("Volunteer-Mapper.selectVolWantMemberListCount", cri);
 			return count;
-		}catch(Exception e) {
-			//에러처리
+		} catch (Exception e) {
+			// 에러처리
 			throw e;
-		}finally {
-			if(session != null)session.close();
+		} finally {
+			if (session != null)
+				session.close();
 		}
 	}
 
@@ -67,6 +69,56 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 		session.update("Volunteer-Mapper.insertVolunteer", memId);
 		if (session != null)
 			session.close();
+	}
+
+	@Override
+	public List<VolunteerVO> selectVolList(Criteria cri) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			int offset = cri.getStartRowNum();
+			int limit = cri.getPerPageNum();
+			RowBounds rowBounds = new RowBounds(offset, limit);
+
+			List<VolunteerVO> volList = session.selectList("Volunteer-Mapper.selectVolList", cri, rowBounds);
+
+			return volList;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+	}
+
+	@Override
+	public int selectVolListCount(Criteria cri) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			int count = session.selectOne("Volunteer-Mapper.selectVolListCount", cri);
+			return count;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (session != null)
+				session.close();
+		}
+	}
+
+	@Override
+	public VolunteerVO selectVolunteerByTitle(String volTilte) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			VolunteerVO volunteer = session.selectOne("Volunteer-Mapper.selectVolunteerplanByTitle", volTilte);
+			return volunteer;
+		} catch (Exception e) {
+			// 에러처리
+			throw e;
+		} finally {
+			if (session != null)
+				session.close();
+		}
 	}
 
 }

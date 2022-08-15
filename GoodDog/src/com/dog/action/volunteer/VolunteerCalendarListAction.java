@@ -10,16 +10,17 @@ import com.dog.action.Action;
 import com.dog.command.Criteria;
 import com.dog.service.volunteer.VolunteerService;
 
-public class VolunteerListAction implements Action {
-
-	private VolunteerService service;
-	public void setVolunteerService(VolunteerService service) {
-		this.service = service;
+public class VolunteerCalendarListAction implements Action {
+	private VolunteerService volService;
+	public void setMemberService(VolunteerService volService) {
+		this.volService = volService;
 	}
-	
+
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/volunteer/volunteerList";
+		// TODO Auto-generated method stub
+		String url = "/volunteer/calendarList";
+		
 		
 		String pageParam = request.getParameter("page");
 		String perPageNumParam = request.getParameter("perPageNum");
@@ -34,8 +35,6 @@ public class VolunteerListAction implements Action {
 				          && !perPageNumParam.isEmpty();
 		
 		Criteria cri = new Criteria();
-		
-		
 		if(criFlag) {
 			try {
 				cri.setPage(Integer.parseInt(pageParam));
@@ -47,16 +46,15 @@ public class VolunteerListAction implements Action {
 				response.sendError(response.SC_BAD_REQUEST);
 				return null;
 			}
-		}			
+		}	
 		
 		try {
-			Map<String,Object> dataMap = service.getVolWantMemberList(cri);
+			Map<String,Object> dataMap = volService.getVolList(cri);
 			request.setAttribute("dataMap", dataMap);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			url = "/error/500";
 		}
-		
 		return url;
 	}
 

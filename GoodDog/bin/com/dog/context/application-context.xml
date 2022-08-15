@@ -4,41 +4,41 @@
 
 	<!-- datasource -->
 	<bean id="sqlSessionFactory"
-		  class="com.dog.datasource.OracleMybatisSqlSessionFactory" />
-		  
-		  
+		class="com.dog.datasource.OracleMybatisSqlSessionFactory">
+	</bean>
+
+
 	<!-- Repository -->
-	<bean id="dogDAO" class="com.dog.dao.happydog.DogDAOImpl" >
-		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
+	<bean id="dogDAO" class="com.dog.dao.happydog.DogDAOImpl">
+		<property name="sqlSessionFactory"
+			ref-value="sqlSessionFactory" />
 	</bean>
-	
-	<bean id="volunteerDAO"  class="com.dog.dao.volunteer.VolunteerDAOImpl" >
-		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
+
+	<bean id="volunteerDAO"
+		class="com.dog.dao.volunteer.VolunteerDAOImpl">
+		<property name="sqlSessionFactory"
+			ref-value="sqlSessionFactory" />
 	</bean>
-	
-	<bean id="memberDAO"  class="com.dog.dao.member.MemberDAOImpl" >
-		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
-	
-			
+
+	<bean id="memberDAO" class="com.dog.dao.member.MemberDAOImpl">
+		<property name="sqlSessionFactory"
+			ref-value="sqlSessionFactory" />
+	</bean>
+
+
 	<!-- Service -->
-	<bean id="dogService" class="com.dog.service.happydog.DogServiceImpl" >
-		<property name="dogDAO" ref-value="dogDAO" /> 
+	<bean id="dogService"
+		class="com.dog.service.happydog.DogServiceImpl">
+		<property name="dogDAO" ref-value="dogDAO" />
 	</bean>
-	
-	<bean id="volunteerService" class="com.dog.service.volunteer.VolunteerServiceImpl">
+
+	<bean id="volunteerService"
+		class="com.dog.service.volunteer.VolunteerServiceImpl">
 		<property name="volunteerDAO" ref-value="volunteerDAO" />
 	</bean>
-	
-	<bean id="memberService" class="com.dog.service.member.MemberServiceImpl">
+
+	<bean id="memberService"
+		class="com.dog.service.member.MemberServiceImpl">
 		<property name="memberDAO" ref-value="memberDAO" />
 	</bean>
-	
-
-	
-	
-
-		
-	
-	
-	
 </beans>

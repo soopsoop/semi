@@ -6,9 +6,10 @@ public class VolunteerVO {
 
 	private String volTitle;
 	private Date volDate;
-//	private String volType;
-//	private String volContnt;
+	private String volType;
+	private String volContent;
 	private String memId;
+	private String volNo; // 봉사지원자넘버
 
 	public String getMemId() {
 		return memId;
@@ -18,7 +19,6 @@ public class VolunteerVO {
 		this.memId = memId;
 	}
 
-	private String volNo; // 봉사지원자넘버
 
 	public String getVolTitle() {
 		return volTitle;
@@ -36,21 +36,21 @@ public class VolunteerVO {
 		this.volDate = volDate;
 	}
 
-//	public String getVolType() {
-//		return volType;
-//	}
-//
-//	public void setVolType(String volType) {
-//		this.volType = volType;
-//	}
-//
-//	public String getVolContnt() {
-//		return volContnt;
-//	}
-//
-//	public void setVolContnt(String volContnt) {
-//		this.volContnt = volContnt;
-//	}
+	public String getVolType() {
+		return volType;
+	}
+
+	public void setVolType(String volType) {
+		this.volType = volType;
+	}
+
+	public String getVolContent() {
+		return volContent;
+	}
+
+	public void setVolContnt(String volContent) {
+		this.volContent = volContent;
+	}
 
 	public String getVolNo() {
 		return volNo;

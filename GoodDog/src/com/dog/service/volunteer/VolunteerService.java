@@ -13,9 +13,13 @@ public interface VolunteerService {
 	//회원목록조회
 	Map<String,Object> getVolWantMemberList(Criteria cri)throws SQLException;
 	
-//	public List<MemberVO> selectVolunteerList() throws SQLException;
-	
 	public void insertVol(VolunteerVO volVo) throws SQLException;
 	
 	public void insertVolWantMember(String memId) throws SQLException;
+	
+	public Map<String, Object> getVolList(Criteria cri) throws SQLException;
+	
+	//봉사상세조회
+	VolunteerVO getVolunteer(String volTitle)throws SQLException;	
+	
 }
