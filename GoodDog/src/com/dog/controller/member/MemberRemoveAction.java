@@ -25,14 +25,6 @@ public class MemberRemoveAction implements Action {
 		String memId = request.getParameter("memId");
 
 		MemberVO member = memberService.getMember(memId);
-		/*
-		 * // �궗吏꾩씠誘몄� �궘�젣 String picture = member.getPicture(); String savedPath =
-		 * GetUploadPath.getUploadPath("member.picture.upload");
-		 * 
-		 * try { File deletePictureFile = new File(savedPath, picture); if
-		 * (deletePictureFile.exists()) deletePictureFile.delete(); } catch (Exception
-		 * e) { // e.printStackTrace(); System.out.println("�궗吏꾩씠 �뾾�뒿�땲�떎."); }
-		 */
 
 		// DB �궘�젣
 		memberService.remove(memId);

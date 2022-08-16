@@ -109,8 +109,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<label for="memGender" class="col-sm-3" style="font-size:0.9em;" >성 별</label>
 							<div class="col-sm-9">
 								<select name="memGender" class="form-control" style="font-size:0.9em;">
-									<option value="MAN">남</option>
-									<option value="WOMAN">여</option>
+									<option value="남">남</option>
+									<option value="여">여</option>
 								</select>
 							</div>
 						</div>	
@@ -144,8 +144,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<div class="col-sm-9">	
 								<div class="input-group-sm">
 													
-									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>										
-									<input style="width:68px;" name="memPhone" type="text" class="form-control float-left" />
+									<!-- <label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>	 -->									
+									<input style="width:238px;" name="memPhone" type="text" class="form-control float-left" />
 										
 								</div>
 							</div>
@@ -231,6 +231,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		  alert("이름은 필수입니다.");
 		  return;
 		}
+	    	    
+	    if(!$('input[name="memMail"]').val()){
+		  alert("메일은 필수입니다.");
+		  return;
+		}
+	    
+	    if(!$('input[name="memRegNo"]').val()){
+		  alert("주민등록번호는 필수입니다.");
+		  return;
+		}
+	    
+	    if(!$('input[name="memAddr"]').val()){
+		  alert("주소는 필수입니다.");
+		  return;
+		}
+	    
+	    if(!$('input[name="memPhone"]').val()){
+		  alert("전화번호는 필수입니다.");
+		  return;
+		}	    
+	    
 	    
 	    var form = $('form[role="form"]');
 		form.attr({"method":"post",

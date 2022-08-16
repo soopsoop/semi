@@ -32,9 +32,6 @@ public class MemberRegistAction implements Action {
 
 			String memPhone = request.getParameter("memPhone");
 			
-		
-
-			//String memPhone = request.getParameter("memPhone");
 			
 			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request, MemberRegistCommand.class );
 

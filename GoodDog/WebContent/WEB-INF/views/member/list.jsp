@@ -94,25 +94,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
     		  <div class="row">
 	             <div class="col-sm-12">	
 		    		<table class="table table-bordered">
-		    			<tr>
-		    				<th>사진</th>
+		    			<tr>	    				
 		                	<th>아이디</th>
 		                	<th>패스워드</th>
 		                	<th>이 름</th>
+		                	<th>성 별</th>
 		                	<th>이메일</th>
+		                	<th>주민번호 앞자리</th>
+		                	<th>주소</th>
 		                	<th>전화번호</th>
 		                	<th>등록날짜</th> <!-- yyyy-MM-dd  -->
 		               	</tr>
 		     			<c:if test="${!empty memberList }" >
 		            		<c:forEach items="${memberList }" var="member">		     						     				
 		     					 <tr  onclick="OpenWindow('detail.do?memId=${member.memId}','회원상세',700,800);" style="cursor:pointer;">
-		            		  	   	<td style="margin:0;padding:0;padding-top:5px;">
+		            		  	   	<%-- <td style="margin:0;padding:0;padding-top:5px;">
 		            		  	   		<span class="manPicture" data-id="${member.memId }"
-		            		  	   		      style="display:block;width:40px;height:40px;margin:0 auto;"></span></td>
+		            		  	   		      style="display:block;width:40px;height:40px;margin:0 auto;"></span></td> --%>
 		            		  	   	<td>${member.memId }</td>
 				              		<td>${member.memPw }</td>
-				              		<td>${member.memName }
+				              		<td>${member.memName }</td>
+				              		<td>${member.memGender }</td>
 				              		<td>${member.memMail }</td>
+				              		<td>${member.memRegNo }</td>
+				              		<td>${member.memAddr }</td>
 		            		  	   	<td>${member.memPhone.replace('-','')  }</td>
 		            		  	   	<td><fmt:formatDate value="${member.memJoinDate }" pattern="yyyy-MM-dd"/></td>
 		            		  	  </tr>	
