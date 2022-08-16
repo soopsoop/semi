@@ -52,9 +52,9 @@ public class MemberRegistCommand {
 		
 		String memPhone = "";
 		
-//		for (String data : this.memPhone) {
-//			memPhone += data;
-//		}
+		for (String data : this.memPhone) {
+			memPhone += data;
+		}
 		
 		// MemberVO setting
 		MemberVO member = new MemberVO();

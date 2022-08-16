@@ -29,17 +29,16 @@ public class MemberRegistAction implements Action {
 			
 			request.setCharacterEncoding("utf-8");
 			
-<<<<<<< HEAD
+
 			String memPhone = request.getParameter("memPhone");
 			
-			
-			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request,
-							MemberRegistCommand.class );
-=======
+		
+
 			//String memPhone = request.getParameter("memPhone");
 			
 			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request, MemberRegistCommand.class );
->>>>>>> d72cf7e (0816)
+
+			
 			MemberVO member = command.toMemberVO();
 			member.setMemPw(request.getParameter("memPw"));
 			member.setMemGender(request.getParameter("memGender"));
