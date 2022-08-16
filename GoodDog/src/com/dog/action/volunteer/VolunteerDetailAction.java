@@ -22,8 +22,6 @@ public class VolunteerDetailAction implements Action {
 		VolunteerVO volunteer = volService.getVolunteer(volTitle);
 		request.setAttribute("volunteer", volunteer);
 		
-		System.out.println(volTitle);
-		System.out.println(volunteer);
 		
 		return url;
 		
