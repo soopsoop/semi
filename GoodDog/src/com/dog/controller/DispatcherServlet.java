@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.dog.action.Action;
 
 
-
 public class DispatcherServlet extends HttpServlet {
 	private HandlerMapper handlerMapper;
 	
@@ -70,11 +69,13 @@ public class DispatcherServlet extends HttpServlet {
 					
 					JSPViewResolver.view(request, response);
 					
+					
 				} catch (Exception e) {					
 					e.printStackTrace();
 					//Exception 처리
 					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);					
 				}
+				
 			}else {
 				response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			}	

@@ -5,32 +5,34 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dog.vo.member.MemberVO;
+import com.dog.dto.member.MemberVO;
 
 
 
 public interface MemberDAO {
 	
-	// È¸¿øÁ¤º¸ Á¶È¸
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	MemberVO selectMemberById(SqlSession session, String memId) throws SQLException;
 	
-	// È¸¿ø¸®½ºÆ® Á¶È¸
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸
 	List<MemberVO> selectMemberList(SqlSession session) throws SQLException;
 
 	
-	// È¸¿ø Ãß°¡
+	// È¸ï¿½ï¿½ ï¿½ß°ï¿½
 	public void insertMember(SqlSession session, MemberVO member) throws SQLException;
 	
-	// È¸¿ø ¼öÁ¤
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void updateMember(SqlSession session, MemberVO member) throws SQLException;
 	
-	// È¸¿ø »èÁ¦
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void deleteMember(SqlSession session, String id) throws SQLException;
 	
-	// È¸¿ø Á¤Áö
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void disabledMember(SqlSession session, String id) throws SQLException;
 	
-	// È¸¿ø È°¼ºÈ¯
+	// È¸ï¿½ï¿½ È°ï¿½ï¿½È¯
 	void enabledMember(SqlSession session, String id) throws SQLException;
+	
+	MemberVO findMemberById(SqlSession session, String memName, String memRegNo, String memPhone ) throws SQLException;
 	
 }

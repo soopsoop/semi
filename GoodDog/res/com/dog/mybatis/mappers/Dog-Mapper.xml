@@ -24,8 +24,9 @@
 		* 
 		from DOG
 		where DOG_NO is not null
+		  and adopt_yn = 0
 		<include refid="search" />
-		order by DOG_DATE desc
+		order by dog_no
 	</select>
 	
 	<select id="selectDogListCount" resultType="int">
@@ -35,5 +36,51 @@
 		where DOG_NO is not null
 		<include refid="search" />
 	</select>
+	
+	<select id="selectDogByNo" parameterType="str" resultType="dog">
+		select
+		*
+		from DOG
+		where DOG_NO=#{dogNo}
+	</select>
+	
+	<insert id="insertDog" >
+		INSERT INTO DOG (
+		    DOG_NO,
+		    DOG_DATE,
+		    DOG_FEATURE,
+		    DOG_BREED,
+		    DOG_NAME,
+		    DOG_GENDER,
+		    DOG_PIC,
+		    MEM_ID,
+		    ADOPT_YN
+		) VALUES (
+		    DOG_NO_SEQ.nextval,
+		    SYSDATE,
+		    #{dogFeature},
+		    #{dogBreed},
+		    #{dogName},
+		    #{dogGender},
+		    #{dogPic},
+		    #{memId},
+		    #{adoptYn}
+		)
+	</insert>
+	
+	<delete id="deleteDog">
+		DELETE FROM DOG
+		 WHERE DOG_NO=#{dogNo}
+	</delete>
+	
+	<update id="updateDog">
+		UPDATE DOG
+		   SET DOG_NAME=#{dogName},
+		       DOG_GENDER=#{dogGender},
+		       DOG_BREED=#{dogBreed},
+		       DOG_FEATURE=#{dogFeature},
+		       ADOPT_YN=#{adoptYn}
+		 WHERE DOG_NO=#{dogNo}
+	</update>
 	
 </mapper>

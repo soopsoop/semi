@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.dog.vo.member.MemberVO;
+import com.dog.dto.member.MemberVO;
 
 
 

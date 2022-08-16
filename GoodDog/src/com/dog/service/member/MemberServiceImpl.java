@@ -1,15 +1,15 @@
 package com.dog.service.member;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.dao.member.MemberDAO;
-import com.dog.vo.member.MemberVO;
+import com.dog.dto.member.MemberVO;
+import com.dog.exception.InvalidPasswordException;
+import com.dog.exception.NotFoundIDException;
 
 
 
@@ -28,14 +28,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public void login(String memId, String memPw) throws SQLException/*, NotFoundIDException, InvalidPasswordException*/ {
+	public void login(String memId, String memPw) throws SQLException, NotFoundIDException, InvalidPasswordException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			MemberVO member = memberDAO.selectMemberById(session, memId);
-//			if (member == null) 
-//				throw new NotFoundIDException();
-//			if (!pwd.equals(member.getPwd()))
-//				throw new InvalidPasswordException();
+			if (member == null) 
+				throw new NotFoundIDException();
+			if (!memPw.equals(member.getMemPw()))
+				throw new InvalidPasswordException();
 		} finally {
 			session.close();
 		}
