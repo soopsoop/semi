@@ -24,25 +24,25 @@ public class MemberRegistCommand {
 	public String getMemPw() {
 		return memPw;
 	}
-	public void setPw(String memPw) {
+	public void setMemPw(String memPw) {
 		this.memPw = memPw;
 	}
 	public String getMemName() {
 		return memName;
 	}
-	public void setName(String memName) {
+	public void setMemName(String memName) {
 		this.memName = memName;
 	}
 	public String[] getMemPhone() {
 		return memPhone;
 	}
-	public void setPhone(String[] memPhone) {
+	public void setMemPhone(String[] memPhone) {
 		this.memPhone = memPhone;
 	}
 	public String getMemMail() {
 		return memMail;
 	}
-	public void setEmail(String memMail) {
+	public void setMemEmail(String memMail) {
 		this.memMail = memMail;
 	}
 

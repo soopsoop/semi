@@ -23,16 +23,23 @@ public class MemberRegistAction implements Action {
 		//화면
 		String url="/member/regist_success";
 		
+		
 		//입력
 		try {
 			
 			request.setCharacterEncoding("utf-8");
 			
+<<<<<<< HEAD
 			String memPhone = request.getParameter("memPhone");
 			
 			
 			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request,
 							MemberRegistCommand.class );
+=======
+			//String memPhone = request.getParameter("memPhone");
+			
+			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request, MemberRegistCommand.class );
+>>>>>>> d72cf7e (0816)
 			MemberVO member = command.toMemberVO();
 			member.setMemPw(request.getParameter("memPw"));
 			member.setMemGender(request.getParameter("memGender"));
