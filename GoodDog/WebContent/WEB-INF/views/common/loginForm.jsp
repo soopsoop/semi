@@ -86,6 +86,9 @@ function infoConfirm() {
 		return;
 	}
 	document.log_frm.submit();
+	if (document.getElementById('pw_check_msg')==null) {
+		window.close();	
+	}
 }
 	document.getElementById('pw_check_msg').innerHTML = "${message}";
 </script>

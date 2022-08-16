@@ -27,11 +27,11 @@
         <h2 class="headline text-danger">500</h2>
 
         <div class="error-content">
-          <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Something went wrong.</h3>
-
+          <h3><i class="fas fa-exclamation-triangle text-danger"></i> 잘못된 요청 ! </h3>
+		<img src="images/volimg.png">  
           <p>
             We will work on fixing that right away.
-            Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+            Meanwhile, you may <a href="../../GoodDog">홈으로 가기</a> or try using the search form.
           </p>
 
           <form class="search-form">
@@ -51,7 +51,7 @@
 
     </section>
 	<%for(int i = 0; i < 100; i++) {%>
-	<img class="money" src="/500.jpg">    
+	<img class="money" src="images/pet.png">    
 	<% }%>
 <%-- 	<%@ include file="/WEB-INF/views/include/js.jsp" %> --%>
 </body>
