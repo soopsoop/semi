@@ -15,7 +15,7 @@ public interface VolunteerService {
 	
 	public void insertVol(VolunteerVO volVo) throws SQLException;
 	
-	public void insertVolWantMember(String memId) throws SQLException;
+	public int insertVolWantMember(VolunteerVO volVo) throws SQLException;
 	
 	public Map<String, Object> getVolList(Criteria cri) throws SQLException;
 	
