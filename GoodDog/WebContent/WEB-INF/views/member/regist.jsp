@@ -120,8 +120,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<div class="form-group row">
 							<label for="memMail" class="col-sm-3" style="font-size:0.9em;">이메일</label>
 							<div class="col-sm-9 input-group-sm">
-								<input name="memMail" type="email" class="form-control" id="memMail"
+								<input name="memMail" type="text" class="form-control" id="memMail"
 										placeholder="example@naver.com">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="memRegNo" class="col-sm-3" style="font-size:0.9em;">주민번호앞자리</label>
+							<div class="col-sm-9 input-group-sm">
+								<input name="memRegNo" type="text" class="form-control" id="memRegNo"
+										placeholder="예)980102">
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="memAddr" class="col-sm-3" style="font-size:0.9em;">주민번호앞자리</label>
+							<div class="col-sm-9 input-group-sm">
+								<input name="memAddr" type="text" class="form-control" id="memAddr"
+										placeholder="예)주소">
 							</div>
 						</div>
 						<div class="form-group row">

@@ -52,15 +52,15 @@ public class MemberRegistCommand {
 		
 		String memPhone = "";
 		
-		for (String data : this.memPhone) {
-			memPhone += data;
-		}
+//		for (String data : this.memPhone) {
+//			memPhone += data;
+//		}
 		
 		// MemberVO setting
 		MemberVO member = new MemberVO();
 		member.setMemId(memId);
 		member.setMemPw(memPw);
-		member.setMemPhone(memPhone);
+//		member.setMemPhone(memPhone);
 		member.setMemMail(memMail);
 		
 		

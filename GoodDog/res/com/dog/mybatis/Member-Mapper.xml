@@ -42,7 +42,7 @@
 	
 	<update id="insertMember" parameterType="member">
         insert into 
-        member(mem_Id, mem_Pw, mem_Name, mem_Gender, mem_RegNo, mem_Mail, mem_Phone, mem_Addr, mem_Join_Date)
+        member(mem_Id, mem_Pw, mem_Name, mem_Gender, mem_Reg_No, mem_Mail, mem_Phone, mem_Addr, mem_Join_Date)
         values(#{memId},#{memPw},#{memName},#{memGender},#{memRegNo},#{memMail},#{memPhone},#{memAddr}, sysdate)
     </update>
 	
