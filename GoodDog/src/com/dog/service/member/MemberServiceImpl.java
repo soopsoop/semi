@@ -7,9 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.dao.member.MemberDAO;
+import com.dog.dto.member.MemberVO;
 import com.dog.exception.InvalidPasswordException;
 import com.dog.exception.NotFoundIDException;
-import com.dog.vo.member.MemberVO;
 
 
 

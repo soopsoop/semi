@@ -3,9 +3,9 @@ package com.dog.service.admin;
 
 import java.sql.SQLException;
 
+import com.dog.dto.admin.AdminVO;
 import com.dog.exception.InvalidPasswordException;
 import com.dog.exception.NotFoundIDException;
-import com.dog.vo.admin.AdminVO;
 
 
 

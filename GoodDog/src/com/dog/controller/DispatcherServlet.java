@@ -67,12 +67,14 @@ public class DispatcherServlet extends HttpServlet {
 					
 					JSPViewResolver.view(request, response);
 					
+					
 				} catch (Exception e) {					
 					e.printStackTrace();
 					//Exception 처리
 					System.out.println("view is null");
 					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);		
 				}
+				
 			}else {
 				System.out.println("action is null");
 				response.sendError(HttpServletResponse.SC_NOT_FOUND);

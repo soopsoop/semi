@@ -43,40 +43,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				<div class="register-card-body">
 					<form role="form" class="form-horizontal" action="regist" method="post">						
 						  <div class="form-group row">
-							 <label for="volTitle" class="col-sm-3" style="font-size:0.9em;" >
+							 <label for="id" class="col-sm-3" style="font-size:0.9em;" >
 							 	<span style="color:red;font-weight:bold;">*</span>봉사 이름</label>	
 							<div class="col-sm-9 input-group input-group-sm">
-								<input name="volTitle" 
-								type="text" class="form-control" id="volTitle" 
+								<input name="id" 
+								type="text" class="form-control" id="id" 
 								value="${volunteer.volTitle }" readonly
 								/>
 							</div>								
 						</div>
 						<div class="form-group row">
-							<label for="volDate" class="col-sm-3" style="font-size:0.9em;">
+							<label for="pwd" class="col-sm-3" style="font-size:0.9em;">
 								<span style="color:red;font-weight:bold;">*</span>봉사 날짜</label>
 							<div class="col-sm-9 input-group input-group-sm">							
-								<input class="form-control" name="volDate" type="text" class="form-control" id="volDate"
+								<input class="form-control" name="name" type="text" class="form-control" id="name"
 										value="${volunteer.volDate }" readonly
 										 />
 							</div>
 							
 						</div>
 						<div class="form-group row">
-							<label for="volType" class="col-sm-3" style="font-size:0.9em;">
+							<label for="name" class="col-sm-3" style="font-size:0.9em;">
 								<span style="color:red;font-weight:bold;">*</span>봉사 타입</label>
 							<div class="col-sm-9 input-group-sm">								
-								<input class="form-control" name="volType" type="text" class="form-control" id="volType"
+								<input class="form-control" name="name" type="text" class="form-control" id="name"
 										value="${volunteer.volType }" readonly 
 										/>
 							</div>
 							
 						</div>		
 						<div class="form-group row">
-							<label for="volContent" class="col-sm-3" style="font-size:0.9em;">
+							<label for="name" class="col-sm-3" style="font-size:0.9em;">
 								<span style="color:red;font-weight:bold;">*</span>봉사 내용</label>
 							<div class="col-sm-9 input-group-sm">								
-								<input class="form-control" name="volContent" type="text" class="form-control" id="volContent"
+								<input class="form-control" name="name" type="text" class="form-control" id="name"
 										 value="${volunteer.volContent }" readonly
 										 />
 							</div>
@@ -86,13 +86,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<div class="card-footer">
 							<div class="row">								
 								<div class="col-sm-6">
-									<button type="button" id="registBtn" onclick="registGo();"  class="btn btn-info">신&nbsp;&nbsp;청</button>
-									
+									<button type="button" id="registBtn" onclick="regist_go();" class="btn btn-info">신&nbsp;&nbsp;청</button>
 							 	</div>
 							 	
 							 	<div class="col-sm-6">
 									<button type="button" id="cancelBtn" onclick="CloseWindow();"
-										class="btn btn-default float-right">&nbsp;&nbsp;&nbsp;닫 &nbsp;&nbsp;기&nbsp;&nbsp;&nbsp;</button>
+										class="btn btn-default float-right">&nbsp;&nbsp;&nbsp;취 &nbsp;&nbsp;소&nbsp;&nbsp;&nbsp;</button>
 								</div>
 							</div>
 						</div>
@@ -105,37 +104,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- /.content-wrapper -->	
 
 <script>
-
-function registGo(){
-	// if문으로 로그인 정보 확인.
-	location.href='wantRegist.do?volTitle=${volunteer.volTitle}';
-	
-}
-
-// 아래 참고해서 이미 신청한 봉사인지 확인해야함.(아이디와 봉사제목 확인..)
-// function doubleCheck_go(){
-	
-// 	var input_ID=$('input[name="id"]');
-	
-// 	$.ajax({
-// 		url : "idCheck.do?id="+input_ID.val().trim(),
-// 		method : "get",	
-// 		success : function(result){
-// 			if(result.toUpperCase() == "DUPLICATED"){
-// 		      alert("이미 신청한 봉사입니다.");
-// 			}else{
-//               alert("사용가능한 아이디 입니다.");
-//               checkedID=input_ID.val().trim();
-//               $('input[name="id"]').val(input_ID.val().trim());	             
-//            } 
-// 		},
-// 		error:function(error){
-// 	       alert("시스템장애로 가입이 불가합니다.");
-// 	    }
-// 	});
-	
-// }
-
+var vv = document.querySelectorAll('.form-control')
+console.log(vv)
+console.log(document.getElementsByClassName("form-control")[0].value)
+console.log(document.getElementsByClassName("form-control")[1].value)
+console.log(document.getElementsByClassName("form-control")[2].value)
+console.log(document.getElementsByClassName("form-control")[3].value)
 </script>  
 <!-- jQuery -->
 <script src="<%=request.getContextPath()%>/resources/bootstrap/plugins/jquery/jquery.min.js"></script>

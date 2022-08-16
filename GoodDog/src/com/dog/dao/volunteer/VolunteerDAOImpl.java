@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.command.Criteria;
-import com.dog.vo.member.MemberVO;
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.member.MemberVO;
+import com.dog.dto.volunteer.VolunteerVO;
 
 public class VolunteerDAOImpl implements VolunteerDAO {
 
@@ -58,22 +58,17 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		session.update("Volunteer-Mapper.insertVol", volVo);
+		session.update("Volunteer-Mapper.inserVol", volVo);
 		if (session != null)
 			session.close();
 	}
 
 	@Override
-	public int insertVolWantMember(VolunteerVO volVo) throws SQLException {
+	public void insertVolWantMember(String memId) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		int cnt = session.insert("Volunteer-Mapper.insertVolWantMember", volVo);
-		if (cnt > 0) {
-			session.commit();
-		} else {
-			session.rollback();
-		}
-
-		return cnt;
+		session.update("Volunteer-Mapper.insertVolunteer", memId);
+		if (session != null)
+			session.close();
 	}
 
 	@Override

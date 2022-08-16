@@ -8,8 +8,8 @@ import java.util.Map;
 import com.dog.command.Criteria;
 import com.dog.command.PageMaker;
 import com.dog.dao.volunteer.VolunteerDAO;
-import com.dog.vo.member.MemberVO;
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.member.MemberVO;
+import com.dog.dto.volunteer.VolunteerVO;
 
 public class VolunteerServiceImpl implements VolunteerService {
 	
@@ -43,9 +43,8 @@ public class VolunteerServiceImpl implements VolunteerService {
 	}
 
 	@Override
-	public int insertVolWantMember(VolunteerVO volVo) throws SQLException {
-		int cnt = volunteerDAO.insertVolWantMember(volVo);
-		return cnt;
+	public void insertVolWantMember(String memId) throws SQLException {
+		volunteerDAO.insertVolWantMember(memId);
 	}
 	
 	@Override

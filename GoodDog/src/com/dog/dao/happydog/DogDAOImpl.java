@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.command.Criteria;
-import com.dog.vo.happydog.DogVO;
+import com.dog.dto.happydog.DogVO;
 
 public class DogDAOImpl implements DogDAO {
 	
@@ -49,6 +49,55 @@ public class DogDAOImpl implements DogDAO {
 			throw e;
 		} finally {
 			if(session != null) session.close();
+		}
+	}
+
+	@Override
+	public void insertDog(DogVO dog) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {			  
+			session.update("Dog-Mapper.insertDog", dog);
+		}catch(Exception e) {
+			throw e;
+		}finally {
+			if(session != null) session.close();
+		}
+	}
+
+	@Override
+	public DogVO selectDogByNo(String dogNo) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {			  
+			DogVO dog=session.selectOne("Dog-Mapper.selectDogByNo", dogNo);			
+			return dog;			
+		}catch(Exception e) {
+			throw e;
+		}finally {
+			if(session != null)session.close();
+		}
+	}
+
+	@Override
+	public void updateDog(DogVO dog) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {			  
+			session.update("Dog-Mapper.updateDog", dog);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if(session != null)session.close();
+		}
+	}
+
+	@Override
+	public void deleteDog(String dogNo) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {			  
+			session.update("Dog-Mapper.deleteDog", dogNo);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if(session != null)session.close();
 		}
 	}
 }

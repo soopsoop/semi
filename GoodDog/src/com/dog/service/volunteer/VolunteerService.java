@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.dog.command.Criteria;
-import com.dog.vo.member.MemberVO;
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.member.MemberVO;
+import com.dog.dto.volunteer.VolunteerVO;
 
 public interface VolunteerService {
 	
@@ -15,7 +15,7 @@ public interface VolunteerService {
 	
 	public void insertVol(VolunteerVO volVo) throws SQLException;
 	
-	public int insertVolWantMember(VolunteerVO volVo) throws SQLException;
+	public void insertVolWantMember(String memId) throws SQLException;
 	
 	public Map<String, Object> getVolList(Criteria cri) throws SQLException;
 	
