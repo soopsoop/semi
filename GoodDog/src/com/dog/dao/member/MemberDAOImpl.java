@@ -1,4 +1,4 @@
-package com.dog.dao.member;
+		package com.dog.dao.member;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -48,5 +48,18 @@ public class MemberDAOImpl implements MemberDAO {
 	public void enabledMember(SqlSession session, String id) throws SQLException {
 		session.update("Member-Mapper.enabledMember", id);
 	}
+
+	@Override
+	public MemberVO findMemberById(SqlSession session, String memName, String memRegNo, String memPhone)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	@Override
+//	public void findMemId(SqlSession session, String memId) throws SQLException {
+//		session.update("Member-Mapper.findMemId", memId);
+//		
+//	}
 
 }

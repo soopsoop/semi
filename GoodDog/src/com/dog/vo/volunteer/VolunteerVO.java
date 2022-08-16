@@ -3,14 +3,22 @@ package com.dog.vo.volunteer;
 import java.util.Date;
 
 public class VolunteerVO {
-	
-	//커밋 테스트333444
+
 	private String volTitle;
 	private Date volDate;
 	private String volType;
-	private String volContnt;
-	
+	private String volContent;
+	private String memId;
 	private String volNo; // 봉사지원자넘버
+
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
 
 	public String getVolTitle() {
 		return volTitle;
@@ -36,12 +44,12 @@ public class VolunteerVO {
 		this.volType = volType;
 	}
 
-	public String getVolContnt() {
-		return volContnt;
+	public String getVolContent() {
+		return volContent;
 	}
 
-	public void setVolContnt(String volContnt) {
-		this.volContnt = volContnt;
+	public void setVolContnt(String volContent) {
+		this.volContent = volContent;
 	}
 
 	public String getVolNo() {
@@ -51,7 +59,5 @@ public class VolunteerVO {
 	public void setVolNo(String volNo) {
 		this.volNo = volNo;
 	}
-	 
-	
 
 }
