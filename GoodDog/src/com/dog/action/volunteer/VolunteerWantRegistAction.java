@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dog.action.Action;
-import com.dog.command.VolunteerWantRegistCommand;
 import com.dog.controller.HttpRequestParameterAdapter;
 import com.dog.service.volunteer.VolunteerService;
 import com.dog.vo.volunteer.VolunteerVO;
