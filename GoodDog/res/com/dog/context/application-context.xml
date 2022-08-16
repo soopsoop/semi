@@ -19,13 +19,6 @@
 		<property name="sqlSessionFactory"
 			ref-value="sqlSessionFactory" />
 	</bean>
-
-	<bean id="memberDAO" class="com.dog.dao.member.MemberDAOImpl">
-		<property name="sqlSessionFactory"
-			ref-value="sqlSessionFactory" />
-	</bean>
-
-
 	
 	<bean id="memberDAO"  class="com.dog.dao.member.MemberDAOImpl" />
 	
@@ -42,8 +35,8 @@
 		<property name="volunteerDAO" ref-value="volunteerDAO" />
 	</bean>
 
-	<bean id="memberService"
-		class="com.dog.service.member.MemberServiceImpl">
+	<bean id="memberService" class="com.dog.service.member.MemberServiceImpl">
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
 		<property name="memberDAO" ref-value="memberDAO" />
 	</bean>
 	
