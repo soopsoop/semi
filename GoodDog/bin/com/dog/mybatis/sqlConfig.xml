@@ -15,7 +15,7 @@
 		<typeAlias type="java.lang.Integer" alias="int" />
 		<typeAlias type="com.dog.vo.happydog.DogVO"  alias="dog"/>
 		<typeAlias type="com.dog.vo.member.MemberVO"  alias="member"/>
-		<typeAlias type="com.dog.vo.volunteer.VolunteerVO"  alias="vol"/>
+		<typeAlias type="com.dog.vo.volunteer.VolunteerVO" alias="volunteer"/>
   	</typeAliases>
   	
   	
@@ -38,9 +38,9 @@
   
   	
   	<mappers>
-		<mapper resource="com/dog/mybatis/Member-Mapper.xml"/>
+		<mapper resource="com/dog/mybatis/mappers/Member-Mapper.xml"/>
 		<mapper resource="com/dog/mybatis/mappers/Dog-Mapper.xml"/>
-		<mapper resource="com/dog/mybatis/mappers/Vol-Mapper.xml"/>
+		<mapper resource="com/dog/mybatis/mappers/Volunteer-Mapper.xml"/>
 	</mappers>
 	
 	

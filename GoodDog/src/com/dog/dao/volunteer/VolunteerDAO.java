@@ -8,15 +8,19 @@ import com.dog.vo.member.MemberVO;
 import com.dog.vo.volunteer.VolunteerVO;
 
 public interface VolunteerDAO {
-//	public List<MemberVO> selectVolunteerList() throws SQLException; // 봉사 신청자 현황
 	
-//	public String insertVol(VolunteerVO volVo) throws SQLException; // 봉사 등록
+	List<MemberVO> selectVolWantMemberList(Criteria cri)throws SQLException;
+	int selectVolWantMemberListCount(Criteria cri)throws SQLException;
 	
-//	public String insertVolWantMember(String memId) throws SQLException; // 신청자 등록
-	
+	public void insertVol(VolunteerVO volVo) throws SQLException;
 
+	public void insertVolWantMember(String memId) throws SQLException;
+	
 	List<VolunteerVO> selectVolList(Criteria cri) throws SQLException;
+	
 	int selectVolListCount(Criteria cri) throws SQLException;
-
+	
+	VolunteerVO selectVolunteerByTitle(String volTilte) throws SQLException;
+	
 	
 }

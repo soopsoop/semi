@@ -12,7 +12,7 @@ import com.dog.service.volunteer.VolunteerService;
 
 public class VolunteerCalendarListAction implements Action {
 	private VolunteerService volService;
-	public void setMemberService(VolunteerService volService) {
+	public void setVolunteerService(VolunteerService volService) {
 		this.volService = volService;
 	}
 
@@ -20,6 +20,7 @@ public class VolunteerCalendarListAction implements Action {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		String url = "/volunteer/calendarList";
+		
 		
 		String pageParam = request.getParameter("page");
 		String perPageNumParam = request.getParameter("perPageNum");

@@ -160,11 +160,11 @@
 		               	</tr>
 		     			<c:if test="${!empty volList }" >
 		            		<c:forEach items="${volList }" var="vol">		     						     				
-<%-- 		     					 <tr  onclick="OpenWindow('detail.do?id=${vol.volTitle}','회원상세',700,800);" style="cursor:pointer;"> --%>
-		     					 <tr onclick="OpenWindow('detail.do?id=${vol.volTitle}','회원상세',700,800);" style="cursor:pointer;">
+		     					  <tr onclick = "OpenWindow('detail.do?volTitle=${vol.volTitle}','회원상세',700,800);" style="cursor:pointer;">
 <!-- 		            		  	   	<td style="margin:0;padding:0;padding-top:5px;"> -->
 		            		  	   	<td>${vol.volTitle }</td>
-				              		<td><fmt:formatDate value="${vol.volDate }" pattern="yyyy-MM-dd"/></td>
+<%-- 				              		<td><fmt:formatDate value="${vol.volDate }" pattern="yyyy-MM-dd"/></td> --%>
+				              		<td>${vol.volDate }</td>
 				              		<td>${vol.volType}</td>
            		  	 			</tr>
 		     					
@@ -187,23 +187,13 @@
 			<!-- end : card-body -->
 			
 			</div>
-			
 		
 		
 		</section>
 		<!-- volunteerList Content End -->
 		
 		
-		
 	</div>
-
-
-
-
-
-
-
-
 
 
 	<!-- jQuery -->
@@ -216,6 +206,6 @@
 	<script
 		src="<%=request.getContextPath()%>/resources/bootstrap/dist/js/adminlte.min.js"></script>
 	<!-- common.js -->
-	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 </body>
 </html>
