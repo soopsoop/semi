@@ -163,7 +163,8 @@
 		     					  <tr onclick = "OpenWindow('detail.do?volTitle=${vol.volTitle}','회원상세',700,800);" style="cursor:pointer;">
 <!-- 		            		  	   	<td style="margin:0;padding:0;padding-top:5px;"> -->
 		            		  	   	<td>${vol.volTitle }</td>
-				              		<td><fmt:formatDate value="${vol.volDate }" pattern="yyyy-MM-dd"/></td>
+<%-- 				              		<td><fmt:formatDate value="${vol.volDate }" pattern="yyyy-MM-dd"/></td> --%>
+				              		<td>${vol.volDate }</td>
 				              		<td>${vol.volType}</td>
            		  	 			</tr>
 		     					

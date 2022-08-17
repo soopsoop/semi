@@ -38,6 +38,10 @@ public class VolunteerServiceImpl implements VolunteerService {
 	
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
+		System.out.println(volVo.getVolTitle());
+		System.out.println(volVo.getVolDate());
+		System.out.println(volVo.getVolType());
+		System.out.println(volVo.getVolContent());
 		volunteerDAO.insertVol(volVo);
 		
 	}
