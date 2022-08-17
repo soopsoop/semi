@@ -44,8 +44,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 	}
 
 	@Override
-	public void insertVolWantMember(String memId) throws SQLException {
-		volunteerDAO.insertVolWantMember(memId);
+	public int insertVolWantMember(VolunteerVO volVo) throws SQLException {
+		int cnt = volunteerDAO.insertVolWantMember(volVo);
+		return cnt;
 	}
 	
 	@Override
