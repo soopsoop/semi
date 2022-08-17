@@ -14,7 +14,7 @@ public interface VolunteerDAO {
 	
 	public void insertVol(VolunteerVO volVo) throws SQLException;
 
-	public int insertVolWantMember(VolunteerVO volVo) throws SQLException;
+	public void insertVolWantMember(String memId) throws SQLException;
 	
 	List<VolunteerVO> selectVolList(Criteria cri) throws SQLException;
 	

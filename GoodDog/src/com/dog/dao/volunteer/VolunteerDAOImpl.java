@@ -11,7 +11,6 @@ import com.dog.command.Criteria;
 import com.dog.dto.member.MemberVO;
 import com.dog.dto.volunteer.VolunteerVO;
 
-
 public class VolunteerDAOImpl implements VolunteerDAO {
 
 	private SqlSessionFactory sqlSessionFactory;
@@ -59,22 +58,17 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		session.update("Volunteer-Mapper.insertVol", volVo);
+		session.update("Volunteer-Mapper.inserVol", volVo);
 		if (session != null)
 			session.close();
 	}
 
 	@Override
-	public int insertVolWantMember(VolunteerVO volVo) throws SQLException {
+	public void insertVolWantMember(String memId) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		int cnt = session.insert("Volunteer-Mapper.insertVolWantMember", volVo);
-		if (cnt > 0) {
-			session.commit();
-		} else {
-			session.rollback();
-		}
-
-		return cnt;
+		session.update("Volunteer-Mapper.insertVolunteer", memId);
+		if (session != null)
+			session.close();
 	}
 
 	@Override
