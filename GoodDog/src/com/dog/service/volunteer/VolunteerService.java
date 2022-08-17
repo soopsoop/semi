@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.dog.command.Criteria;
-import com.dog.vo.member.MemberVO;
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.volunteer.VolunteerVO;
+
 
 public interface VolunteerService {
 	

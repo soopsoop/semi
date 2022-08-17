@@ -4,9 +4,9 @@ package com.dog.service.member;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.dog.dto.member.MemberVO;
 import com.dog.exception.InvalidPasswordException;
 import com.dog.exception.NotFoundIDException;
-import com.dog.vo.member.MemberVO;
 
 
 	public interface MemberService {

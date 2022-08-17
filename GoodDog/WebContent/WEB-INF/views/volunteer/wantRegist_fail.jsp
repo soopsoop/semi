@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <script>
-	alert("ºÀ»ç½ÅÃ»¿¡ ½ÇÆÐÇß½À´Ï´Ù.\n ·Î±×ÀÎ ÈÄ ½ÅÃ»ÇØÁÖ¼¼¿ä.");
+	alert("ë´‰ì‚¬ì‹ ì²­ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n ");
 	window.close();	
 </script>

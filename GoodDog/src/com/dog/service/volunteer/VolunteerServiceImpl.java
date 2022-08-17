@@ -8,8 +8,9 @@ import java.util.Map;
 import com.dog.command.Criteria;
 import com.dog.command.PageMaker;
 import com.dog.dao.volunteer.VolunteerDAO;
-import com.dog.vo.member.MemberVO;
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.member.MemberVO;
+import com.dog.dto.volunteer.VolunteerVO;
+
 
 public class VolunteerServiceImpl implements VolunteerService {
 	
@@ -72,3 +73,4 @@ public class VolunteerServiceImpl implements VolunteerService {
 	}
 
 }
+

@@ -30,7 +30,7 @@ public class HttpRequestParameterAdapter {
 					} else {
 						method.invoke(obj, paramValues[0]);
 					}
-                              
+
 				}
 			}
 		}

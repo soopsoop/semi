@@ -6,9 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.dao.admin.AdminDAO;
+import com.dog.dto.admin.AdminVO;
 import com.dog.exception.InvalidPasswordException;
 import com.dog.exception.NotFoundIDException;
-import com.dog.vo.admin.AdminVO;
 
 
 public class AdminServiceImpl implements AdminService {

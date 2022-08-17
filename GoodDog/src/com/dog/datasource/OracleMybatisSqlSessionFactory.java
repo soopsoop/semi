@@ -16,7 +16,7 @@ public class OracleMybatisSqlSessionFactory implements SqlSessionFactory {
 	private SqlSessionFactory sqlSessionFactory;
 
 	{
-		String config = "com/dog/mybatis/sqlConfig.xml";
+		String config = "com/dog/mybatis/config/sqlConfig.xml";
 
 		try {
 			Reader reader = Resources.getResourceAsReader(config);
@@ -44,7 +44,7 @@ public class OracleMybatisSqlSessionFactory implements SqlSessionFactory {
 
 	@Override
 	public SqlSession openSession() {
-		return sqlSessionFactory.openSession(false);
+		return sqlSessionFactory.openSession(true);
 	}
 
 	@Override

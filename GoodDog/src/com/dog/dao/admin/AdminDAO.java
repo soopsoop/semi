@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dog.vo.admin.AdminVO;
+import com.dog.dto.admin.AdminVO;
 
 
 

@@ -8,8 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.dog.command.Criteria;
-import com.dog.vo.member.MemberVO;
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.member.MemberVO;
+import com.dog.dto.volunteer.VolunteerVO;
+
 
 public class VolunteerDAOImpl implements VolunteerDAO {
 
@@ -127,3 +128,4 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	}
 
 }
+

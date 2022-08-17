@@ -22,6 +22,7 @@ public class InitApplicationContextServlet extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		// System.out.println("init process....");
 
 		String beanConfigXml = config.getInitParameter("contextConfigLocation");
 
@@ -32,7 +33,8 @@ public class InitApplicationContextServlet extends HttpServlet {
 
 		beanConfigXml = ctx.getRealPath("/")
 				+ beanConfigXml.replace("classpath:", "WEB-INF/classes/").replace("/", File.separator);
-//		System.out.println("확인1");
+
+		// System.out.println(beanConfigXml);
 
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -41,14 +43,15 @@ public class InitApplicationContextServlet extends HttpServlet {
 
 			Element root = document.getDocumentElement();
 
+			//System.out.println(root.getTagName());
+			
 			if(root == null || !root.getTagName().equals("beans")) return;
 			
 			NodeList beans = root.getElementsByTagName("bean"); 
 			
-//			System.out.println("확인2");
-
+			
 			Map<String, Object> applicationContext = 
-					ApplicationContext.getApplicationContext(); 
+					ApplicationContext.getApplicationContext(); // application context
 			for (int i = 0; i < beans.getLength(); i++) {
 				Node bean = beans.item(i);
 				if (bean.getNodeType() == Node.ELEMENT_NODE) {
@@ -56,19 +59,24 @@ public class InitApplicationContextServlet extends HttpServlet {
 					String id = ele.getAttribute("id");
 					String classType = ele.getAttribute("class");
 					
+					//System.out.printf("id : %s,class=%s\n",id,classType);
+					
+					// map instance put
 					Class<?> cls = Class.forName(classType);
-					Object targetObj = cls.newInstance(); 
+					Object targetObj = cls.newInstance(); //single tone
 					applicationContext.put(id, targetObj);
 					
+					//System.out.println("id : " + id + ", class : " + targetObj);
 				}
 			}
 			
+			
+			//의존 주입
 			for (int i = 0; i < beans.getLength(); i++) {
 				Node bean = beans.item(i);
 				if (bean.getNodeType() == Node.ELEMENT_NODE) {
 					Element eleBean = (Element)bean;
-//					System.out.println("확인3");
-
+					
 					NodeList properties = bean.getChildNodes();
 					for (int j = 0; j < properties.getLength(); j++) {
 						Node property = properties.item(j);
@@ -79,6 +87,7 @@ public class InitApplicationContextServlet extends HttpServlet {
 							String name = ele.getAttribute("name");
 							String ref = ele.getAttribute("ref-value");
 							
+							//System.out.printf("name = %s,ref-value=%s\n",name,ref);
 							
 							String setMethodName = "set" + name.substring(0, 1).toUpperCase() 
 									+ name.substring(1);
@@ -88,6 +97,7 @@ public class InitApplicationContextServlet extends HttpServlet {
 
 							Method[] methods = classType.getMethods();
 							if(methods!=null) for (Method method : methods) {
+								// 의존성 여부 확인
 								if (method.getName().equals(setMethodName)) {
 									
 									method.invoke(applicationContext.get(eleBean.getAttribute("id")),
