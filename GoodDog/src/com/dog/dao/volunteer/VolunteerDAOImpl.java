@@ -59,9 +59,15 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		session.update("Volunteer-Mapper.insertVol", volVo);
-		if (session != null)
-			session.close();
+		
+		try {
+			session.update("Volunteer-Mapper.insertVol", volVo);
+			
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (session != null) session.close();
+		}
 	}
 
 	@Override

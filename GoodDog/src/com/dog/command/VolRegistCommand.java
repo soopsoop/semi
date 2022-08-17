@@ -1,66 +1,54 @@
-package com.dog.dto.volunteer;
+package com.dog.command;
 
-import java.util.Date;
+import com.dog.vo.volunteer.VolunteerVO;
 
-public class VolunteerVO {
-
+public class VolRegistCommand {
 	private String volTitle;
 	private String volDate;
 	private String volType;
 	private String volContent;
-	private String memId;
-	private String volNo; // 봉사지원자넘버
 	
-	public VolunteerVO() {
+	public VolRegistCommand() {
 	}
-
-	public String getMemId() {
-		return memId;
-	}
-
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-
-
+	
 	public String getVolTitle() {
 		return volTitle;
 	}
-
 	public void setVolTitle(String volTitle) {
 		this.volTitle = volTitle;
 	}
-
 	public String getVolDate() {
 		return volDate;
 	}
-
 	public void setVolDate(String volDate) {
 		this.volDate = volDate;
 	}
-
 	public String getVolType() {
 		return volType;
 	}
-
 	public void setVolType(String volType) {
 		this.volType = volType;
 	}
-
 	public String getVolContent() {
 		return volContent;
 	}
-
-	public void setVolContnt(String volContent) {
+	public void setVolContent(String volContent) {
 		this.volContent = volContent;
 	}
+	
 
-	public String getVolNo() {
-		return volNo;
+	public VolunteerVO toVolunteerVO() {
+		
+		VolunteerVO vol = new VolunteerVO();
+		vol.setVolTitle(volTitle);
+		vol.setVolDate(volDate);
+		vol.setVolType(volType);
+		vol.setVolContnt(volContent);
+//		vol.setMemId(memId);
+//		vol.setVolNo(volNo);
+		return vol;
+		
 	}
-
-	public void setVolNo(String volNo) {
-		this.volNo = volNo;
-	}
+	
 
 }
