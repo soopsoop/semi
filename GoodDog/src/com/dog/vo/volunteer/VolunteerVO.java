@@ -5,14 +5,11 @@ import java.util.Date;
 public class VolunteerVO {
 
 	private String volTitle;
-	private String volDate;
+	private Date volDate;
 	private String volType;
 	private String volContent;
 	private String memId;
 	private String volNo; // 봉사지원자넘버
-	
-	public VolunteerVO() {
-	}
 
 	public String getMemId() {
 		return memId;
@@ -31,11 +28,11 @@ public class VolunteerVO {
 		this.volTitle = volTitle;
 	}
 
-	public String getVolDate() {
+	public Date getVolDate() {
 		return volDate;
 	}
 
-	public void setVolDate(String volDate) {
+	public void setVolDate(Date volDate) {
 		this.volDate = volDate;
 	}
 

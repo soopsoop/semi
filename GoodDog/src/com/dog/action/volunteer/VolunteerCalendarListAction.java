@@ -12,7 +12,7 @@ import com.dog.service.volunteer.VolunteerService;
 
 public class VolunteerCalendarListAction implements Action {
 	private VolunteerService volService;
-	public void setVolunteerService(VolunteerService volService) {
+	public void setMemberService(VolunteerService volService) {
 		this.volService = volService;
 	}
 

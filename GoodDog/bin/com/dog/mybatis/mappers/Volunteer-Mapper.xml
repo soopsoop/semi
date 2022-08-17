@@ -19,11 +19,11 @@
 		where VOL_NO is not null
 	</select>
 
-	<update id="insertVol" parameterType="volunteer">
-		insert into 
-		vol_plan(vol_title,vol_date,vol_type,vol_content)
-		values(#{volTitle},#{volDate},#{volType},#{volContent})
-	</update>
+	<select id="inserVol" resultType="volunteer">
+		select
+		*
+		from VOL_WANT
+	</select>
 
 	<select id="insertVolWantMember" resultType="volunteer">
 		select
