@@ -1,7 +1,5 @@
 package com.dog.controller.member;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,23 +25,11 @@ public class MemberRegistAction implements Action {
 		//입력
 		try {
 			
-			request.setCharacterEncoding("utf-8");
-			
-
-			String memPhone = request.getParameter("memPhone");
-			
-			
-			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request, MemberRegistCommand.class );
-
-			
+			request.setCharacterEncoding("utf-8");	
+			MemberRegistCommand command =HttpRequestParameterAdapter.execute(request,
+										MemberRegistCommand.class );
 			MemberVO member = command.toMemberVO();
-			member.setMemPw(request.getParameter("memPw"));
-			member.setMemGender(request.getParameter("memGender"));
-			member.setMemRegNo(request.getParameter("memRegNo"));
-			member.setMemMail(request.getParameter("memMail"));
-			member.setMemPhone(request.getParameter("memPhone"));
-			member.setMemAddr(request.getParameter("memAddr"));
-					System.out.println(url);
+			
 			//처리
 			memberService.regist(member);
 		

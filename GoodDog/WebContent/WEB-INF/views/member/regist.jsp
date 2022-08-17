@@ -139,14 +139,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 										placeholder="예)주소">
 							</div>
 						</div>
-						<div class="form-group row">
+							<div class="form-group row">
 							<label for="memPhone" class="col-sm-3 control-label">전화번호</label>
 							<div class="col-sm-9">	
 								<div class="input-group-sm">
-													
-									<!-- <label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>	 -->									
-									<input style="width:238px;" name="memPhone" type="text" class="form-control float-left" />
-										
+									<select style="width:75px;" name="memPhone" id="memPhone" class="form-control float-left">
+										<option value="">-선택-</option>
+										<option value="010">010</option>
+										<option value="011">011</option>
+										<option value="017">017</option>
+										<option value="018">018</option>
+									</select>	
+									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-&nbsp;</label>										
+									<input style="width:68px;" name="memPhone" type="text" class="form-control float-left" />
+									<label class="float-left" style="padding: 0; text-align: center;">&nbsp;-</label>
+									<input style="width:68px;" name="memPhone" type="text" class="form-control float-right" />						
 								</div>
 							</div>
 						</div>
