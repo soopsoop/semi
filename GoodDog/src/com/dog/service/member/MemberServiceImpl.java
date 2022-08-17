@@ -121,4 +121,15 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberVO findMemberById(String memName, String memMail) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			MemberVO member = memberDAO.findMemberById(session, memName, memMail);
+			return member;
+		} finally {
+			session.close();
+		}
+	}
+
 }

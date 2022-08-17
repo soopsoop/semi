@@ -50,9 +50,8 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberVO findMemberById(SqlSession session, String memName, String memRegNo, String memPhone)
-			throws SQLException {
-		// TODO Auto-generated method stub
+	public MemberVO findMemberById(SqlSession session, String memName, String memMail) throws SQLException {
+		session.selectMap("Member-Mapper.findMemberById", memName, memMail);
 		return null;
 	}
 

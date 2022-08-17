@@ -35,5 +35,7 @@ import com.dog.exception.NotFoundIDException;
 		
 		// 회원 활성화
 		void enabled(String id) throws SQLException;
+		
+		MemberVO findMemberById(String memName, String memMail) throws SQLException;
 
 }
