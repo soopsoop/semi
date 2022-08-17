@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dog.action.Action;
 
-public class FindIdAction implements Action {
+public class MemberRegistFormAction implements Action{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String url="/member/regist";
+		return url;
 	}
 
 }

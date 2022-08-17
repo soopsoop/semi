@@ -3,14 +3,22 @@
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.dog.command.Criteria;
 import com.dog.dto.member.MemberVO;
 
 
 
 public class MemberDAOImpl implements MemberDAO {
 
+	private SqlSessionFactory SqlSessionFactory;
+	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+		this.SqlSessionFactory = sqlSessionFactory;
+	}
+	
 	@Override
 	public MemberVO selectMemberById(SqlSession session, String memId) throws SQLException {
 		MemberVO member = session.selectOne("Member-Mapper.selectMemberById", memId);
@@ -18,15 +26,16 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public List<MemberVO> selectMemberList(SqlSession session) throws SQLException {
-		List<MemberVO> memberList = session.selectList("Member-Mapper.selectMemberList");
-		return memberList;
-	}
-
-
-	@Override
-	public void insertMember(SqlSession session, MemberVO member) throws SQLException {
-		session.update("Member-Mapper.insertMember", member);
+	public void insertMember(SqlSession session,MemberVO member) throws SQLException {
+		try {			  
+			session.update("Member-Mapper.insertMember",member);
+		}catch(Exception e) {
+			//����ó��
+			throw e;
+		}finally {
+			if(session != null)session.close();
+		}
+		
 	}
 
 	@Override
@@ -54,6 +63,40 @@ public class MemberDAOImpl implements MemberDAO {
 		session.selectMap("Member-Mapper.findMemberById", memName, memMail);
 		return null;
 	}
+
+	public int selectMemberListCount(Criteria cri) throws SQLException {
+		SqlSession session = SqlSessionFactory.openSession();
+		try {
+			
+			int count = session.selectOne("Member-Mapper.selectMemberListCount",cri);			
+			return count;
+		}catch(Exception e) {
+			//����ó��
+			throw e;
+		}finally {
+			if(session != null)session.close();
+		}
+		
+	}
+
+	@Override
+	public List<MemberVO> selectMemberList(Criteria cri) throws SQLException {
+		SqlSession session = SqlSessionFactory.openSession();
+		try {
+			int offset = cri.getStartRowNum();
+			int limit = cri.getPerPageNum();
+			RowBounds rowBounds = new RowBounds(offset,limit);
+			
+		List<MemberVO> memberList = session.selectList("Member-Mapper.selectMemberList",cri,rowBounds);
+		return memberList;
+		}catch(Exception e) {
+			throw e;
+		}finally {
+			if(session != null)session.close();
+		}
+	}
+
+
 
 //	@Override
 //	public void findMemId(SqlSession session, String memId) throws SQLException {

@@ -1,11 +1,15 @@
 package com.dog.service.member;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.dog.command.Criteria;
+import com.dog.command.PageMaker;
 import com.dog.dao.member.MemberDAO;
 import com.dog.dto.member.MemberVO;
 import com.dog.exception.InvalidPasswordException;
@@ -53,16 +57,23 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<MemberVO> getMemberList() throws SQLException {
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			List<MemberVO> memberList = memberDAO.selectMemberList(session);
-			return memberList;
-		} finally {
-			session.close();
-		}
+	public Map<String,Object> getMemberList(Criteria cri) throws SQLException {
+		
+		Map<String,Object> dataMap =null;
+		
+		//ó��.......
+		List<MemberVO> memberList = memberDAO.selectMemberList(cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(memberDAO.selectMemberListCount(cri));
+		
+		dataMap = new HashMap<String,Object>();
+		dataMap.put("memberList", memberList);
+		dataMap.put("pageMaker",pageMaker);
+		
+		return dataMap;
 	}
-
 
 	@Override
 	public void regist(MemberVO member) throws SQLException {

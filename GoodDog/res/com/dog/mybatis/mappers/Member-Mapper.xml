@@ -3,6 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member-Mapper">
+
 	<sql id="search">	
 		<if test="searchType == 'i'.toString()">
 			and id like '%'||#{keyword}||'%'			
@@ -41,28 +42,24 @@
 	</select>
 	
 	<update id="insertMember" parameterType="member">
-		insert into 
-		member(id, pwd, email, phone,picture,name,authority)
-		values(#{id},#{pwd},#{email},#{phone},#{picture},#{name},#{authority})
-	</update>
-	
-	<update id="updateMember" parameterType="member">
+        insert into 
+        member(mem_Id, mem_Pw, mem_Name, mem_Gender, mem_Reg_No, mem_Mail, mem_Phone, mem_Addr, mem_Join_Date)
+        values(#{memId},#{memPw},#{memName},#{memGender},#{memRegNo},#{memMail},#{memPhone},#{memAddr}, sysdate)
+    </update>
+    
+    <update id="updateMember" parameterType="member">
 		update member 
 		set 
-		pwd=#{pwd},email=#{email},phone=#{phone},name=#{name},
-		picture=#{picture},enabled=1
+		mem_Pw=#{memPw},mem_Mail=#{memMail},mem_Phone=#{memPhone},mem_Name=#{memName}
 		
-		<if test="authority != null">
-			,authority=#{authority}
-		</if>
-		
-		where id=#{id}
+		where MEM_ID=#{memId}
 	</update>
+	
 	
 	<update id="deleteMember" parameterType="str" >
 		delete 
 		from member 
-		where id=#{id}		
+		where MEM_ID=#{memId}		
 	</update>
 	
 	<select id="findMemberById" parameterType="str" resultType="member">
