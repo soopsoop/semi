@@ -44,7 +44,7 @@ public class OracleMybatisSqlSessionFactory implements SqlSessionFactory {
 
 	@Override
 	public SqlSession openSession() {
-		return sqlSessionFactory.openSession(false);
+		return sqlSessionFactory.openSession(true);
 	}
 
 	@Override
