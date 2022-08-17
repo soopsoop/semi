@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.dog.command.Criteria;
 import com.dog.command.PageMaker;
 import com.dog.dao.volunteer.VolunteerDAO;
@@ -36,6 +38,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 		
 		return dataMap;
 	}
+	
 	
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
@@ -70,6 +73,14 @@ public class VolunteerServiceImpl implements VolunteerService {
 		VolunteerVO volunteer = volunteerDAO.selectVolunteerByTitle(volTitle);
 		
 		return volunteer;
+	}
+	@Override
+	public void updateVol(VolunteerVO volVo) throws SQLException {
+		volunteerDAO.updateVol(volVo);
+	}
+	@Override
+	public void deleteVol(String volTitle) throws SQLException {
+		volunteerDAO.deleteVol(volTitle);
 	}
 
 }

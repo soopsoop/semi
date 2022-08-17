@@ -44,8 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				<!-- form start -->
 				<div class="card">
 					<div class="register-card-body">
-						<form role="form" class="form-horizontal" action="regist"
-							method="post">
+						<form role="form" class="form-horizontal" method="post">
 							<div class="form-group row">
 								<label for="volTitle" class="col-sm-3" style="font-size: 0.9em;">
 									<span style="color: red; font-weight: bold;">*</span>봉사 이름
@@ -91,38 +90,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							</div>
 
 							<div class="card-footer">
+							
+							<c:if test="${empty loginAdmin	}">
 								<div class="row">
 									<div class="col-sm-6">
 										<button type="button" id="registBtn" onclick="registGo();"
 											class="btn btn-info">신&nbsp;&nbsp;&nbsp;청</button>
-
 									</div>
-
 									<div class="col-sm-6">
 										<button type="button" id="cancelBtn" onclick="CloseWindow();"
 											class="btn btn-default float-right">&nbsp;&nbsp;&nbsp;닫
 											&nbsp;기&nbsp;&nbsp;&nbsp;</button>
 									</div>
 								</div>
-							</div>
+								
+							</c:if>
 							
-							
-<!-- 									수정,삭제버튼은 어드민으로 들어갔을때만 보여야함. -->
-							<div class="card-footer">
+							<c:if test="${!empty loginAdmin }">
 								<div class="row">
-
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 										<button type="button" id="registBtn" onclick="updateGo();"
 											class="btn btn-info">수&nbsp;&nbsp;정</button>
 									</div>
-
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 										<button type="button" id="registBtn" onclick="deleteGo();"
 											class="btn btn-info">삭&nbsp;&nbsp;제</button>
 									</div>
+									<div class="col-sm-4">
+										<button type="button" id="cancelBtn" onclick="CloseWindow();"
+											class="btn btn-default float-right">&nbsp;&nbsp;닫
+											&nbsp;기&nbsp;&nbsp;</button>
+									</div>
 								</div>
-							</div>							
-							
+							</c:if>
+							</div>
 							
 							
 						</form>
@@ -165,19 +166,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		// 	});
 
 		// }
-	</script>
-	<script>
-			function updateGo() {
-			location.href = 'volUpdateForm.do?volTitle=${volunteer.volTitle}';
-		}
-	</script>
-	<script>
-			function deleteGo() {
-// 			location.href = 'wantRegist.do?volTitle=${volunteer.volTitle}';
-			alert("삭제");
-		}
 	</script>	
 	
+	<script>
+		function updateGo() {
+			location.href = 'volUpdateForm.do?volTitle=${volunteer.volTitle}';
+			
+		}
+	</script>
+	
+	
+		<script>
+		function deleteGo() {
+			location.href = 'volDelete.do?volTitle=${volunteer.volTitle}';
+// 			alert("삭제");
+		}
+	</script>
 	
 	<!-- jQuery -->
 	<script
