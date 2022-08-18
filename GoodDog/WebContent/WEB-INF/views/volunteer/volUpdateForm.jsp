@@ -70,14 +70,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								<span style="color:red;font-weight:bold;">*</span>봉사유형</label>
 							<div class="col-sm-9">	
 								<div class="input-group-sm">
-									<select style="width:75px;" name="volType" id="volType" class="form-control float-left">
-										<option value="">-선택-</option>
-										<option value="산책">산책</option>
-										<option value="목욕">목욕</option>
-										<option value="청소">청소</option>
-										<option value="놀이">놀이</option>
-										<option value="기타">기타</option>
-									</select>							
+								
+								<select style="width:75px;" name="volType" id="volType">
+                      				<option value="">-선택-</option>
+                      				
+                    			    <option value="산책"
+                            <c:if test="${volunteer.volType == '산책' }">selected</c:if>>산책</option>
+                            
+                      				<option value="목욕"
+                            <c:if test="${volunteer.volType == '목욕'  }">selected</c:if>>목욕</option>
+                      				<option value="청소"
+                            <c:if test="${volunteer.volType == '청소' }">selected</c:if>>청소</option>
+                      				<option value="놀이"
+                            <c:if test="${volunteer.volType == '놀이' }">selected</c:if>>놀이</option>
+                      				<option value="기타"
+                            <c:if test="${volunteer.volType == '기타' }">selected</c:if>>기타</option>
+
+								</select>
+								
+								
+								
+								
+<!-- 									<select style="width:75px;" name="volType" id="volType" class="form-control float-left"> -->
+<!-- 										<option value="">-선택-</option> -->
+<!-- 										<option value="산책">산책</option> -->
+<!-- 										<option value="목욕">목욕</option> -->
+<!-- 										<option value="청소">청소</option> -->
+<!-- 										<option value="놀이">놀이</option> -->
+<!-- 										<option value="기타">기타</option> -->
+<!-- 									</select>							 -->
 								</div>
 							</div>
 						</div>
