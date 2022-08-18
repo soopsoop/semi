@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.dog.command.Criteria;
 import com.dog.dto.member.MemberVO;
 
 
@@ -14,8 +15,10 @@ public interface MemberDAO {
 	// ȸ������ ��ȸ
 	MemberVO selectMemberById(SqlSession session, String memId) throws SQLException;
 	
+	int selectMemberListCount(Criteria cri)throws SQLException;
+	
 	// ȸ������Ʈ ��ȸ
-	List<MemberVO> selectMemberList(SqlSession session) throws SQLException;
+	List<MemberVO> selectMemberList(Criteria cri) throws SQLException;
 
 	
 	// ȸ�� �߰�
@@ -33,6 +36,6 @@ public interface MemberDAO {
 	// ȸ�� Ȱ��ȯ
 	void enabledMember(SqlSession session, String id) throws SQLException;
 	
-	MemberVO findMemberById(SqlSession session, String memName, String memRegNo, String memPhone ) throws SQLException;
+	MemberVO findMemberById(SqlSession session, String memMail ) throws SQLException;
 	
 }

@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
 		<div class="login-logo">
-			<a href="#"><b>관리자 로그인</b></a>
+			<a href="#"><b>로그인</b></a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
@@ -42,37 +42,52 @@
 				</div>
 				<div class="form-group has-feedback">
 					<input type="password" class="form-control" name="pwd" placeholder="패스워드를 입력하세요."  value="">
-					  <span id="pw_check_msg" ></span> 
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="checkbox icheck">
-							<label> <input type="checkbox" name="rememberMe" value="check"> Remember Me
-							</label>
+						<a href="findIdForm.do" style="font-weight:bold;">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a style="font-weight:bold" onclick="OpenWindow('member/registForm.do','회원가입',600,700);" href="#">회원가입</a><br> 
 						</div>
 					</div>
 					<!-- /.col -->
 					<div class="col-sm-4">
-						<input type="button" onclick="infoConfirm()" class="btn btn-primary btn-block btn-flat">로그인</button>
+						<input type="button" onclick="infoConfirm()" class="btn btn-primary btn-block btn-flat" value="로그인"></button>
 					</div>
 					<!-- /.col -->
 				</div>
 			</form>
 
+					  <span id="pw_check_msg" style =color:red;></span> 
 			
 
-			<a href="#" style="font-weight:bold;">아이디/패스워드 찾기</a><br> 
 			
-
-		</div>
+					
+		<br>
+		<div class="row">
+		<div class="col-sm-8">
+		<div class="checkbox icheck">
+		 
+		 </div> 
+		 </div>
+		 </div>
+		 
+		</div> 
+		
 		<!-- /.login-box-body -->
 	  </div>	
-	</div>
+	  </div>
+	  
+
+
+		 
 	<!-- /.login-box -->
 	
 <script>
+	
 function infoConfirm() {
+		
 	if(document.log_frm.id.value.length == 0){
 		document.getElementById('pw_check_msg').innerHTML = "아이디를 입력해주세요!";
 /* 		alert("아이디를 입력해주세요!") */
@@ -89,6 +104,7 @@ function infoConfirm() {
 	if (document.getElementById('pw_check_msg')==null) {
 		window.close();	
 	}
+	
 }
 	document.getElementById('pw_check_msg').innerHTML = "${message}";
 </script>
@@ -106,6 +122,8 @@ function infoConfirm() {
 
 <!-- jquery cookie -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 
 </body>
 </html>

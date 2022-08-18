@@ -32,6 +32,10 @@
 			ref-value="sqlSessionFactory" />
 	</bean>
 			
+	<bean id="qnaDAO" class="com.dog.dao.qnaboard.QnaDAOImpl" >
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
+	</bean>
+	
 	<!-- Service -->
 	<bean id="dogService"
 		class="com.dog.service.happydog.DogServiceImpl">
@@ -60,5 +64,10 @@
 		class="com.dog.service.report.ReportServiceImpl">
 		<property name="reportDAO" ref-value="reportDAO" />
 	</bean>
+	
+	<bean id="qnaService" class="com.dog.service.qnaboard.QnaServiceImpl" >
+		<property name="qnaDAO" ref-value="qnaDAO" /> 
+	</bean>
+	
 	
 </beans>
