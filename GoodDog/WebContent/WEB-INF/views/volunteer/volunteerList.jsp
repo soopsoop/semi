@@ -15,6 +15,15 @@
 th, td {
 	padding: 30px;
 }
+.topImage {
+  width: 100%;
+}
+.topImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin : auto;
+}
 </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +43,10 @@ th, td {
 
 	<div>
 		<!-- Main content -->
-		<img src="../images/volimg.png" width="1280" height="290">
+		<div class="topImage">
+		<img src="../images/volB2.png" >
+		</div>
+		
 		<section class="content-header">
 			<div class="container-fluid">
 				<div class="row md-2">

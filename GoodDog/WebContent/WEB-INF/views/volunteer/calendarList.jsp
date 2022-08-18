@@ -15,6 +15,17 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <meta charset="utf-8">
 <title>봉사목록리스트 화면입니다.</title>
+<style>
+.topImage {
+  width: 100%;
+}
+.topImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin : auto;
+}
+</style>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -89,8 +100,9 @@
 
 	</header>
 <!-- 헤더영역 끝 -->
-
-
+<div class="topImage">
+		<img src="../images/volimg.png" >
+</div>
 </div>
 	<div>
 	<!-- volunteerList Header Start -->
@@ -99,14 +111,6 @@
 				<div class="row md-2">
 					<div class="col-sm-6">
 						<h3>등록된 봉사목록</h3>
-					</div>
-					<div class="col-sm-6">
-						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item"><a href="../main.html"> 
-								<i class="fa fa-dashboard"></i>메인화면
-							</a></li>
-							<li class="breadcrumb-item active">목록</li>
-						</ol>
 					</div>
 				</div>
 			</div>

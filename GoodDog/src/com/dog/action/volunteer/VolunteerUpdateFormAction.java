@@ -24,6 +24,7 @@ public class VolunteerUpdateFormAction implements Action {
 		request.setAttribute("volunteer", volunteer);
 		
 		System.out.println(volTitle);
+		System.out.println("타입" + volunteer.getVolType());
 		
 		return url;
 	}
