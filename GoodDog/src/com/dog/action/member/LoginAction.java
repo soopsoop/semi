@@ -32,7 +32,7 @@ public class LoginAction implements Action {
    
    public String process(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
-      String url = "redirect:/index.do";
+      String url = "redirect:/";
       
       //입력
       String memId = request.getParameter("id");
@@ -71,7 +71,7 @@ public class LoginAction implements Action {
          throw e;
       }
       catch(InvalidPasswordException | NotFoundIDException e) {
-         request.setAttribute("message", e.getMessage());
+         request.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다");
          	System.out.println(e.getMessage());
 			url = "/common/loginForm"; 
       }

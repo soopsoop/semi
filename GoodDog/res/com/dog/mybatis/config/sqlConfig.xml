@@ -17,6 +17,8 @@
 		<typeAlias type="com.dog.dto.member.MemberVO"  alias="member"/>
 		<typeAlias type="com.dog.dto.volunteer.VolunteerVO" alias="volunteer"/>
 		<typeAlias type="com.dog.dto.admin.AdminVO"  alias="admin"/>
+		<typeAlias type="com.dog.vo.qnaboard.QnaVO"  alias="qna"/>
+		
   	</typeAliases>
   	
   	
@@ -43,6 +45,7 @@
 		<mapper resource="com/dog/mybatis/mappers/Dog-Mapper.xml"/>
 		<mapper resource="com/dog/mybatis/mappers/Volunteer-Mapper.xml"/>
 		<mapper resource="com/dog/mybatis/mappers/AdminMapper.xml"/>
+		<mapper resource="com/dog/mybatis/mappers/QnaBoard-Mapper.xml"/>
 	</mappers>
 	
 	

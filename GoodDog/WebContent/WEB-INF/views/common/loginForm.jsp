@@ -47,7 +47,8 @@
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="checkbox icheck">
-						<a href="findIdForm.do" style="font-weight:bold;">아이디찾기</a><br> 
+						<a href="findIdForm.do" style="font-weight:bold;">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a style="font-weight:bold" onclick="OpenWindow('member/registForm.do','회원가입',600,700);" href="#">회원가입</a><br> 
 						</div>
 					</div>
 					<!-- /.col -->
@@ -67,7 +68,7 @@
 		<div class="row">
 		<div class="col-sm-8">
 		<div class="checkbox icheck">
-		 <a style="font-weight:bold" onclick="OpenWindow('member/registForm.do','회원가입',600,700);" href="#">회원가입</a>
+		 
 		 </div> 
 		 </div>
 		 </div>
@@ -84,7 +85,9 @@
 	<!-- /.login-box -->
 	
 <script>
+	
 function infoConfirm() {
+		
 	if(document.log_frm.id.value.length == 0){
 		document.getElementById('pw_check_msg').innerHTML = "아이디를 입력해주세요!";
 /* 		alert("아이디를 입력해주세요!") */
@@ -101,6 +104,7 @@ function infoConfirm() {
 	if (document.getElementById('pw_check_msg')==null) {
 		window.close();	
 	}
+	
 }
 	document.getElementById('pw_check_msg').innerHTML = "${message}";
 </script>
