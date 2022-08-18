@@ -11,6 +11,7 @@ import com.dog.command.Criteria;
 import com.dog.dto.member.MemberVO;
 import com.dog.dto.volunteer.VolunteerVO;
 
+
 public class VolunteerDAOImpl implements VolunteerDAO {
 
 	private SqlSessionFactory sqlSessionFactory;
@@ -58,17 +59,22 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		session.update("Volunteer-Mapper.inserVol", volVo);
+		session.update("Volunteer-Mapper.insertVol", volVo);
 		if (session != null)
 			session.close();
 	}
 
 	@Override
-	public void insertVolWantMember(String memId) throws SQLException {
+	public int insertVolWantMember(VolunteerVO volVo) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
-		session.update("Volunteer-Mapper.insertVolunteer", memId);
-		if (session != null)
-			session.close();
+		int cnt = session.insert("Volunteer-Mapper.insertVolWantMember", volVo);
+		if (cnt > 0) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+
+		return cnt;
 	}
 
 	@Override
@@ -121,4 +127,21 @@ public class VolunteerDAOImpl implements VolunteerDAO {
 		}
 	}
 
+	@Override
+	public void updateVol(VolunteerVO volVo) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		session.update("Volunteer-Mapper.updateVol", volVo);
+		if (session != null)
+			session.close();
+	}
+
+	@Override
+	public void deleteVol(String volTitle) {
+		SqlSession session = sqlSessionFactory.openSession();
+		session.delete("Volunteer-Mapper.deleteVol", volTitle);
+		if (session != null)
+			session.close();
+	}
+
 }
+

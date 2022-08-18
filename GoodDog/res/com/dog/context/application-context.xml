@@ -23,6 +23,14 @@
 	<bean id="memberDAO"  class="com.dog.dao.member.MemberDAOImpl" />
 	
 	<bean id="adminDAO"  class="com.dog.dao.admin.AdminDAOImpl" />
+	<bean id="adoptWantDAO" class="com.dog.dao.adoptwant.AdoptWantDAOImpl">
+		<property name="sqlSessionFactory"
+			ref-value="sqlSessionFactory" />
+	</bean>		
+	<bean id="reportDAO" class="com.dog.dao.report.ReportDAOImpl">
+		<property name="sqlSessionFactory"
+			ref-value="sqlSessionFactory" />
+	</bean>
 			
 	<!-- Service -->
 	<bean id="dogService"
@@ -43,6 +51,14 @@
 	<bean id="adminService" class="com.dog.service.admin.AdminServiceImpl">
 		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
 		<property name="adminDAO" ref-value="adminDAO" />
+	</bean>
+		<bean id="adoptWantService"
+		class="com.dog.service.adoptwant.AdoptWantServiceImpl">
+		<property name="adoptWantDAO" ref-value="adoptWantDAO" />
+	</bean>
+	<bean id="reportService"
+		class="com.dog.service.report.ReportServiceImpl">
+		<property name="reportDAO" ref-value="reportDAO" />
 	</bean>
 	
 </beans>

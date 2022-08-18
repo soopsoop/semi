@@ -1,11 +1,9 @@
 package com.dog.dto.volunteer;
 
-import java.util.Date;
-
 public class VolunteerVO {
 
 	private String volTitle;
-	private Date volDate;
+	private String volDate;
 	private String volType;
 	private String volContent;
 	private String memId;
@@ -28,11 +26,11 @@ public class VolunteerVO {
 		this.volTitle = volTitle;
 	}
 
-	public Date getVolDate() {
+	public String getVolDate() {
 		return volDate;
 	}
 
-	public void setVolDate(Date volDate) {
+	public void setVolDate(String volDate) {
 		this.volDate = volDate;
 	}
 
@@ -48,7 +46,7 @@ public class VolunteerVO {
 		return volContent;
 	}
 
-	public void setVolContnt(String volContent) {
+	public void setVolContent(String volContent) {
 		this.volContent = volContent;
 	}
 

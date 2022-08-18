@@ -4,7 +4,7 @@
 .info_box { width: 1220px; margin: 0 auto;}
 .info_box h2 { padding: 58px 0 41px; font-size: 21px; color:#777; font-weight: normal; text-align: center; letter-spacing: 36px;}
 .info_box h2 span { color:#042e6f;}
-.info_box li { float: left; margin: 0 0 60px 60px; width: 260px; position: relative;}
+.info_box li { float: left; margin: 0 0 60px 60px; width: 330px; position: relative;}
 .info_box li:first-child { margin: 0 0 60px 0;}
 .info_box li:nth-child(5) { margin: 0 0 60px 0;}
 .info_box li:nth-child(9) { margin: 0 0 60px 0;}
@@ -30,8 +30,7 @@
 .info_box li a > div div:after { content: ""; display: inline-block; margin:0 0 0 6px; width: 22px; height: 12px; background: url(../images/icon.png) no-repeat -60px -25px; transition: all 0.5s;}
 .info_box li:hover a > div div:after { background-position: -60px -5px;}
 .info_box li a .ico { position: absolute; left: 20px; top: 237px; width:65px; height:65px; color:#fff; text-align: center; line-height: 65px; font-size: 13px;}
-.info_box li a .ico.no1 { background: #94c83d;}
-.info_box li a .ico.no2 { background: #042e6f;}
+.info_box li a .ico.no2 { background: #8B4513;}
 .info_box > ul + * { padding-top: 30px;}
 .btn_more { display: inline-block;width: 140px; height: 44px; border:1px solid #042e6f; box-sizing: border-box; font-size: 16px; color:#042e6f; line-height: 44px; text-align: center; letter-spacing: 7px;}
 .btn_more:after { content: ""; display: inline-block; margin: 0 0 0 8px; width:12px; height:12px; background: url(../images/icon.png) no-repeat -196px -5px;}
