@@ -68,3 +68,6 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 /.metadata/
+JSP_Listener/src/com/jsp/listener/TestListener.java
+JSP_Listener/WebContent/META-INF/MANIFEST.MF
+JSP_Listener/WebContent/WEB-INF/web.xml
