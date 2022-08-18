@@ -74,8 +74,8 @@
 	
 	<update id="insertBoard" parameterType="qna">
 		insert into
-		qna_board (qna_No,qna_Id,qna_Title,qna_Content,qna_Date)
-		values (#{qnaNo},#{qnaId},#{qnaTitle},#{qnaContent},sysdate)
+		qna_board (qna_No,mem_Id,qna_Title,qna_Content,qna_Date)
+		values (#{qnaNo},#{memId},#{qnaTitle},#{qnaContent},sysdate)
 	</update>
 	
 	<update id="updateBoard" parameterType="qna">

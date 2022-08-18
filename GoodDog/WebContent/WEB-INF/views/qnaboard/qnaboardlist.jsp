@@ -63,9 +63,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
    					 	<!-- sort num -->
 					  		<select class="form-control col-md-3" name="perPageNum" id="perPageNum" onchange="list_go(1);">					  		  		
 					  		<option value="10" ${cri.perPageNum eq 10 ? 'selected' : '' } >정렬개수</option>
-					  		<option value="20" ${cri.perPageNum eq 20 ? 'selected' : '' }>20개씩</option>
-					  		<option value="30" ${cri.perPageNum eq 30 ? 'selected' : '' }>30개씩</option>
-<%-- 					  		<option value="5" ${cri.perPageNum eq 5 ? 'selected' : '' }>5개씩</option> --%>
+					  		<option value="2" ${cri.perPageNum eq 2 ? 'selected' : '' }>2개씩</option>
+					  		<option value="3" ${cri.perPageNum eq 3 ? 'selected' : '' }>3개씩</option>
+					  		<option value="5" ${cri.perPageNum eq 5 ? 'selected' : '' }>5개씩</option>
 					  	</select>
 					  	
 					  	
@@ -140,7 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					
 					<c:forEach var="pageNum" begin="${pageMaker.startPage }" end="${pageMaker.endPage }" >
 						<li class="page-item ${cri.page == pageNum?'active':''}">
-							<a class="page-link" href="javascript:list_go('${pageNum}');" >${pageNum }</a>
+							<a class="page-link" href="javascript:list_go('${pageNum}');" >${pageNum }</a>y
 						</li>
 					</c:forEach>
 						<li class="page-item">
