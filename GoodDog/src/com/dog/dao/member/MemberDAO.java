@@ -36,6 +36,6 @@ public interface MemberDAO {
 	// ȸ�� Ȱ��ȯ
 	void enabledMember(SqlSession session, String id) throws SQLException;
 	
-	MemberVO findMemberById(SqlSession session, String memName, String memMail ) throws SQLException;
+	MemberVO findMemberById(SqlSession session, String memMail ) throws SQLException;
 	
 }

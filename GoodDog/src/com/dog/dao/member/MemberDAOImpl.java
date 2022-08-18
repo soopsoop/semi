@@ -59,9 +59,9 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberVO findMemberById(SqlSession session, String memName, String memMail) throws SQLException {
-		session.selectMap("Member-Mapper.findMemberById", memName, memMail);
-		return null;
+	public MemberVO findMemberById(SqlSession session,String memMail) throws SQLException {
+		MemberVO member = session.selectOne("Member-Mapper.findMemberById", memMail);
+		return member;
 	}
 
 	public int selectMemberListCount(Criteria cri) throws SQLException {

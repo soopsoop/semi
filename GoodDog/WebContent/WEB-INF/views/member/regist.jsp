@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- form start -->
 			<div class="card">				
 				<div class="register-card-body">
-					<form role="form" class="form-horizontal" action="regist" method="post">						
+					<form role="form" class="form-horizontal" action="regist" method="post" name="reg_frm">						
 						<!-- <input type="hidden" name="picture" />
 						<div class="input-group mb-3">
 							<div class="mailbox-attachments clearfix" style="text-align: center;">
@@ -161,11 +161,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<div class="card-footer">
 							<div class="row">								
 								<div class="col-sm-6">
-									<button type="button" id="registBtn" onclick="regist_go();" class="btn btn-info">등&nbsp;&nbsp;록</button>
+									<button type="button" id="registBtn" onclick="regist_go();" class="btn btn-info" >등&nbsp;&nbsp;록</button>
 							 	</div>
 							 	
 							 	<div class="col-sm-6">
-									<button type="button" id="cancelBtn" onclick=""
+									<button type="button" id="cancelBtn" onclick="window.close();	"
 										class="btn btn-default float-right">&nbsp;&nbsp;&nbsp;취 &nbsp;&nbsp;소&nbsp;&nbsp;&nbsp;</button>
 								</div>
 							
@@ -224,38 +224,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 		if(!$('input[name="memId"]').val()){
 		  alert("아이디는 필수입니다.");
+		  reg_frm.memId.focus();
 		  return;
 		}
-	    /* if($('input[name="memId"]').val()!=checkedID){
+	    if($('input[name="memId"]').val()!=checkedID){
 	      alert("아이디는 중복 확인이 필요합니다.");
 	      return;
-	    } */
+	    } 
 	    if(!$('input[name="memPw"]').val()){
 		  alert("패스워드는 필수입니다.");
+		  reg_frm.memPw.focus();
 		  return;
 	    }
 	    if(!$('input[name="memName"]').val()){
 		  alert("이름은 필수입니다.");
+		  reg_frm.memName.focus();
 		  return;
 		}
 	    	    
 	    if(!$('input[name="memMail"]').val()){
 		  alert("메일은 필수입니다.");
+		  reg_frm.memMail.focus();
 		  return;
 		}
 	    
 	    if(!$('input[name="memRegNo"]').val()){
 		  alert("주민등록번호는 필수입니다.");
+		  reg_frm.memRegNo.focus();
 		  return;
 		}
 	    
 	    if(!$('input[name="memAddr"]').val()){
 		  alert("주소는 필수입니다.");
+		  reg_frm.memAddr.focus();
 		  return;
 		}
 	    
 	    if(!$('input[name="memPhone"]').val()){
 		  alert("전화번호는 필수입니다.");
+		  reg_frm.memPhone.focus();
 		  return;
 		}	    
 	    

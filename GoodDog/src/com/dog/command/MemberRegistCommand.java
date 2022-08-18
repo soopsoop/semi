@@ -2,6 +2,7 @@ package com.dog.command;
 
 import java.util.Date;
 
+import com.dog.action.member.SHA256;
 import com.dog.dto.member.MemberVO;
 
 
@@ -82,10 +83,12 @@ public class MemberRegistCommand {
 			memPhone += data;
 		}
 		
+		String password = SHA256.encodeSha256(memPw);
+		
 		// MemberVO setting
 		MemberVO member = new MemberVO();
 		member.setMemId(memId);
-		member.setMemPw(memPw);
+		member.setMemPw(password);
 		member.setMemPhone(memPhone);
 		member.setMemMail(memMail);
 		member.setMemAddr(memAddr);
