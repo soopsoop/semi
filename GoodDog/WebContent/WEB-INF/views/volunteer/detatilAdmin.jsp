@@ -44,14 +44,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				<!-- form start -->
 				<div class="card">
 					<div class="register-card-body">
-						<form role="form" class="form-horizontal" action="volUpdate.do" method="post">
+						<form role="form" class="form-horizontal" action="volUpdate.do" method="post" >	
 							<div class="form-group row">
 								<label for="volTitle" class="col-sm-3" style="font-size: 0.9em;">
 									<span style="color: red; font-weight: bold;">*</span>봉사 이름
 								</label>
 								<div class="col-sm-9 input-group input-group-sm">
 									<input name="volTitle" type="text" class="form-control"
-										id="volTitle" value="${volunteer.volTitle }" readonly />
+										id="volTitle" value="${volunteer.volTitle }"  readonly/>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -59,9 +59,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									<span style="color: red; font-weight: bold;">*</span>봉사 날짜
 								</label>
 								<div class="col-sm-9 input-group input-group-sm">
-									<input class="form-control" name="volDate" type="text"
+									<input name="volDate" type="text"
 										class="form-control" id="volDate"
-										value="${volunteer.volDate }"  />
+										value="${volunteer.volDate }" />
 								</div>
 
 							</div>
@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									style="color: red; font-weight: bold;">*</span>봉사 내용
 								</label>
 								<div class="col-sm-9 input-group-sm">
-									<input class="form-control" name="volContent" type="text"
+									<input name="volContent" type="text"
 										class="form-control" id="volContent"
 										value="${volunteer.volContent }"  />
 								</div>
@@ -96,53 +96,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 							<div class="card-footer">
 								<div class="row">
-
-									<div class="col-sm-4">
+									<div class="col-sm-6">
 										<button type="button" id="registBtn" onclick="updateGo();"
-											class="btn btn-info">수&nbsp;&nbsp;정</button>
+											class="btn btn-info">수&nbsp;&nbsp;&nbsp;정</button>
+
 									</div>
 
-									<div class="col-sm-4">
-										<button type="button" id="registBtn" onclick="deleteGo();"
-											class="btn btn-info">삭&nbsp;&nbsp;제</button>
-									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-6">
 										<button type="button" id="cancelBtn" onclick="CloseWindow();"
-											class="btn btn-default float-right">&nbsp;&nbsp;닫
-											&nbsp;기&nbsp;&nbsp;</button>
+											class="btn btn-default float-right">&nbsp;&nbsp;&nbsp;닫
+											&nbsp;기&nbsp;&nbsp;&nbsp;</button>
 									</div>
 								</div>
 							</div>
-
+							
+						</form>
 					</div>
-
-
-					</form>
+					<!-- register-card-body -->
 				</div>
-				<!-- register-card-body -->
 			</div>
-	</div>
-	</section>
-	<!-- /.content -->
+		</section>
+		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
 
 	<script>
-		function updateGo() {
-			var form=$('form[role="form"]');	
-			form.submit();
-			
-		}
+  	function updateGo() {
+	    var form = $('form[role="form"]');
+		form.submit();
+	}
 	</script>
 	
-	<script>
-		function deleteGo() {
-// 						location.href = 'wantRegist.do?volTitle=${volunteer.volTitle}';
-			alert("삭제");
-		}
-	</script>
-
-
+	
 	<!-- jQuery -->
 	<script
 		src="<%=request.getContextPath()%>/resources/bootstrap/plugins/jquery/jquery.min.js"></script>

@@ -1,7 +1,5 @@
 package com.dog.dto.volunteer;
 
-import java.util.Date;
-
 public class VolunteerVO {
 
 	private String volTitle;
@@ -10,9 +8,6 @@ public class VolunteerVO {
 	private String volContent;
 	private String memId;
 	private String volNo; // 봉사지원자넘버
-	
-	public VolunteerVO() {
-	}
 
 	public String getMemId() {
 		return memId;
@@ -51,7 +46,7 @@ public class VolunteerVO {
 		return volContent;
 	}
 
-	public void setVolContnt(String volContent) {
+	public void setVolContent(String volContent) {
 		this.volContent = volContent;
 	}
 

@@ -129,8 +129,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							 	</div>
 							 	
 							 	<div class="col-sm-6">
-									<button type="button" id="cancelBtn" onclick=""
-										class="btn btn-default float-right">&nbsp;&nbsp;&nbsp;취 &nbsp;&nbsp;소&nbsp;&nbsp;&nbsp;</button>
+									<button type="button" id="cancelBtn" onclick="CloseWindow();"
+											class="btn btn-default float-right">&nbsp;&nbsp;닫&nbsp;기&nbsp;&nbsp;</button>
 								</div>
 							
 							</div>
@@ -221,7 +221,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<%=request.getContextPath()%>/resources/bootstrap/dist/js/adminlte.min.js"></script>
 <!-- Date Inputmask -->
 <script src="<%=request.getContextPath()%>/resources/bootstrap/plugins/inputmask/jquery.inputmask.min.js"></script>
-
+<!-- common.js -->
+<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 <script type="text/javascript">
 $(function() {
 	//Datemask dd/mm/yyyy

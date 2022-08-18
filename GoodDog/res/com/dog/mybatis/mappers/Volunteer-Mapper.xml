@@ -61,8 +61,20 @@
 		from VOL_PLAN
 		where VOL_TITLE =#{volTitle}
 	</select>
+	
+	<update id="updateVol" parameterType="volunteer">
+		update VOL_PLAN
+		set
+		vol_title = #{volTitle},
+		vol_date =#{volDate},
+		vol_type =#{volType},
+		vol_content =#{volContent}
+		where VOL_TITLE =#{volTitle}
+	</update>	
 
-
-
+	<delete id="deleteVol" parameterType="str">
+		delete from VOL_PLAN
+		where VOL_TITLE =#{volTitle}
+	</delete>	
 
 </mapper>

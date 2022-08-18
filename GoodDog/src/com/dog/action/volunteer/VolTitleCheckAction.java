@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dog.action.Action;
+import com.dog.dto.volunteer.VolunteerVO;
 import com.dog.service.volunteer.VolunteerService;
-import com.dog.vo.volunteer.VolunteerVO;
 
 public class VolTitleCheckAction implements Action {
 	private VolunteerService volService;

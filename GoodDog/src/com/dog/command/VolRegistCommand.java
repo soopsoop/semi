@@ -1,6 +1,6 @@
 package com.dog.command;
 
-import com.dog.vo.volunteer.VolunteerVO;
+import com.dog.dto.volunteer.VolunteerVO;
 
 public class VolRegistCommand {
 	private String volTitle;
@@ -43,7 +43,7 @@ public class VolRegistCommand {
 		vol.setVolTitle(volTitle);
 		vol.setVolDate(volDate);
 		vol.setVolType(volType);
-		vol.setVolContnt(volContent);
+		vol.setVolContent(volContent);
 //		vol.setMemId(memId);
 //		vol.setVolNo(volNo);
 		return vol;

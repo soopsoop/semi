@@ -117,7 +117,9 @@
 		<section class="content">
 			<div class="card">
 				<div class="card-header with-border">
+				<c:if test="${!empty loginAdmin }">
    				<button type="button" class="btn btn-primary" onclick="OpenWindow('volRegistForm.do','봉사등록',600,700);" >봉사등록</button>
+   				</c:if>
    				<div id="keyword" class="card-tools" style="width:550px;">
    				<div class="input-group row">
    					 	<!-- search bar -->
@@ -125,24 +127,25 @@
 					  		<select class="form-control col-md-3" name="perPageNum" id="perPageNum" onchange="list_go(1);">					  		  		
 					  		<option value="10" ${cri.perPageNum eq 10 ? 'selected' : '' } >정렬개수</option>
 					  		<option value="5" ${cri.perPageNum eq 5 ? 'selected' : '' }>5개씩</option>
+					  		<option value="10" ${cri.perPageNum eq 10 ? 'selected' : '' }>10개씩</option>
 					  	</select>
 					  	
-					  	<!-- search bar -->
-					 	<select class="form-control col-md-3" name="searchType" id="searchType">
-					 		<option value=""  >검색구분</option>
-							<option value="n" ${param.searchType=='i' ? "selected":"" } >봉사명</option>
-							<option value="t" ${param.searchType=='n' ? "selected":"" }>봉사주제</option>
-						</select>
+<!-- 					  	search bar -->
+<!-- 					 	<select class="form-control col-md-3" name="searchType" id="searchType"> -->
+<!-- 					 		<option value=""  >검색구분</option> -->
+<%-- 							<option value="n" ${param.searchType=='i' ? "selected":"" } >봉사명</option> --%>
+<%-- 							<option value="t" ${param.searchType=='n' ? "selected":"" }>봉사주제</option> --%>
+<!-- 						</select> -->
 						
-						<!-- keyword -->
-   					 	<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/>
-						<span class="input-group-append">
-							<button class="btn btn-primary" type="button" 
-									id="searchBtn" data-card-widget="search" onclick="list_go(1);">
-								<i class="fa fa-fw fa-search"></i>
-							</button>
-						</span>
-					<!-- end : search bar -->		
+<!-- 						keyword -->
+<%--    					 	<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/> --%>
+<!-- 						<span class="input-group-append"> -->
+<!-- 							<button class="btn btn-primary" type="button"  -->
+<!-- 									id="searchBtn" data-card-widget="search" onclick="list_go(1);"> -->
+<!-- 								<i class="fa fa-fw fa-search"></i> -->
+<!-- 							</button> -->
+<!-- 						</span> -->
+<!-- 					end : search bar		 -->
    					 </div>
    				</div>   			
    			</div>
@@ -180,20 +183,31 @@
 		            </table>
     		     </div>
     	       </div> <!-- row -->
-				
-			
-			
 			</div>
 			<!-- end : card-body -->
-			
 			</div>
-		
 		
 		</section>
 		<!-- volunteerList Content End -->
 		
-		
 	</div>
+	
+		<script>
+		function list_go(page, url) {
+			//alert(page);
+			if (!url)
+				url = "calendarList.do";
+
+			var jobForm = $('#jobForm');
+			jobForm.find("[name='page']").val(page);
+			jobForm.find("[name='perPageNum']").val(
+					$('select[name="perPageNum"]').val());
+			jobForm.attr({
+				action : url,
+				method : 'get'
+			}).submit();
+		}
+	</script>
 
 
 	<!-- jQuery -->

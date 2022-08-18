@@ -22,5 +22,9 @@ public interface VolunteerDAO {
 	
 	VolunteerVO selectVolunteerByTitle(String volTilte) throws SQLException;
 	
+	public void updateVol(VolunteerVO volVo) throws SQLException;
+	
+	public void deleteVol(String volTitle);
+	
 	
 }
