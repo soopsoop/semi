@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   	</section> 
   <!-- Main content -->
   <section class="content register-page" >
-	<form role="form" class="form-horizontal" action="dogmodify.do" method="post" enctype="multipart/form-data">	
+	<form role="form" class="form-horizontal" action="dogmodify.do" method="post" >	
 		<div class="card" style="min-width:450px;">	
 			<div class="card-body">	
 				<div class="row">					

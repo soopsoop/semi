@@ -5,11 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.dog.command.Criteria;
 import com.dog.command.PageMaker;
 import com.dog.dao.volunteer.VolunteerDAO;
 import com.dog.dto.member.MemberVO;
 import com.dog.dto.volunteer.VolunteerVO;
+
 
 public class VolunteerServiceImpl implements VolunteerService {
 	
@@ -36,6 +39,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 		return dataMap;
 	}
 	
+	
 	@Override
 	public void insertVol(VolunteerVO volVo) throws SQLException {
 		volunteerDAO.insertVol(volVo);
@@ -43,8 +47,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 	}
 
 	@Override
-	public void insertVolWantMember(String memId) throws SQLException {
-		volunteerDAO.insertVolWantMember(memId);
+	public int insertVolWantMember(VolunteerVO volVo) throws SQLException {
+		int cnt = volunteerDAO.insertVolWantMember(volVo);
+		return cnt;
 	}
 	
 	@Override
@@ -69,5 +74,14 @@ public class VolunteerServiceImpl implements VolunteerService {
 		
 		return volunteer;
 	}
+	@Override
+	public void updateVol(VolunteerVO volVo) throws SQLException {
+		volunteerDAO.updateVol(volVo);
+	}
+	@Override
+	public void deleteVol(String volTitle) throws SQLException {
+		volunteerDAO.deleteVol(volTitle);
+	}
 
 }
+

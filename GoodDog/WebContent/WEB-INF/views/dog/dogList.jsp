@@ -113,7 +113,7 @@
       <section class="content">
          <div class="card">
             <div class="card-header with-border">
-               <button type="button" class="btn btn-primary"
+               <button type="button" class="btn btn-primary" style="background-color: #D2B48C; border: none; "
                   onclick="OpenWindow('dogregistform.do','보호견 등록',600,1100);">보호견
                   등록</button>
                <div id="keyword" class="card-tools" style="width: 550px;">
@@ -159,16 +159,19 @@
                            <div class="col-sm-3">
                               <div class="card">
                                  <div class="embed-responsive embed-responsive-4by3">
-                                    <img style="width: 100%; height: 70%;"
+                                    <img style="width: 100%; height: 70%; cursor: pointer;"
                                        class="card-img-top embed-responsive-item"
                                        src="<%=request.getContextPath()%>/resources/images/upload/${dog.dogPic}"
-                                       class="card-img-top" alt="...">
+                                       class="card-img-top" alt="..."
+                                       onclick="OpenWindow('dogdetail.do?dogNo=${dog.dogNo}','보호견 상세',700,800);">
                                     <div class="card-body">
                                        <h5 class="card-text">${dog.dogName }-${dog.dogBreed }</h5>
                                        <p class="card-text">${dog.dogGender }
                                           <br> ${dog.dogFeature }
                                        </p>
-                                       <a href="#" class="btn btn-primary">입양 신청</a>
+                                       <a style="background-color: #D2B48C; border: none; "class="btn btn-primary" 
+                                       onclick="OpenWindow('<%=request.getContextPath()%>/adoptwant/adoptwantform.do','입양 신청',600,500);">
+                                       	입양 &nbsp;&nbsp;신청</a>
                                     </div>
                                  </div>
                               </div>
@@ -295,6 +298,9 @@ window.onload=function() {
    DogPictureThumb('<%=request.getContextPath()%>
       ');
       }
+      
+      
+      
    </script>
 
    <!-- jQuery -->

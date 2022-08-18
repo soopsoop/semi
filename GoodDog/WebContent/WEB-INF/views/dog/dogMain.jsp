@@ -23,10 +23,16 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/dist/css/adminlte.min.css">
 </head>
 <body>
-	<a href="#contents" class="skip">본문바로가기</a>
 <!-- 헤더영역 -->
-	<header id="header" class="index">
-		<%-- <h1><a href="#a"><img src="<%=request.getContextPath()%>/resources/images/main_logo.PNG" alt="세상에 나쁜개는 없다"></a></h1> --%>
+	<header>
+		<hr/>
+		<div id="top">
+			<a href="#a"><img alt="메인로고" src="<%=request.getContextPath()%>/resources/images/mainlogo.JPG"></a>
+		</div>
+	</header>
+
+	<div id="header" class="index">
+
 		<h2 class="hide">대메뉴(Hide)</h2>
 		<div id="lnb">
 			<nav>
@@ -38,7 +44,7 @@
 					<li><a href="#a">제공서비스 및 혜택</a></li>
 					</ul>
 				</li>
-				<li><a href="#a">유기견 등록/제보</a>
+				<li><a href="#a">유기견 등록 / 제보</a>
 					<ul>
 					<li><a href="#a">유기동물 제보</a></li>
 					<li><a href="#a">분실동물 등록</a></li>
@@ -71,6 +77,12 @@
 					<li><a href="#a">불만접수</a></li>
 					</ul>
 				</li>
+				<li><a href="#a">LOGIN / JOIN US</a>
+					<ul>
+					<li><a href="#a">LOGIN</a></li>
+					<li><a href="#a">JOIN US</a></li>
+					</ul>
+				</li>
 				</ul>
 			</nav>
 			<div></div>
@@ -88,7 +100,7 @@
 				</video>
 			</div>
 		</div>
-	</header>
+	</div>
 <!-- 헤더영역 끝 -->
 
 <!-- 본문영역 -->
@@ -110,7 +122,7 @@
 								<div>
 									<h3>${dog.dogName} - ${dog.dogBreed}</h3>
 									<p>${dog.dogFeature}</p>
-									<span class="ico no1">
+									<span class="ico no1" style="background: #042e6f;">
 										<c:if test="${dog.adoptYn eq 0}">분양중</c:if>
 										<c:if test="${dog.adoptYn eq 1}">입양완료</c:if>
 									</span>

@@ -1,0 +1,71 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdoptWant-Mapper">
+
+	<sql id="search">	
+		<if test="searchType == 'no'.toString()">
+			and WANT_NO like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'tl'.toString()">
+			and WANT_TITLE like '%'||#{keyword}||'%'			
+		</if>	
+		<if test="searchType == 'ct'.toString()">
+			and WANT_CONTENT like '%'||#{keyword}||'%'			
+		</if>	
+	</sql>	
+
+	<select id="selectAdoptWantList" resultType="want">
+		select
+		* 
+		from ADOPT_WANT
+		where WANT_NO is not null
+		<include refid="search" />
+		order by want_no 
+	</select>
+	
+	<select id="selectAdoptWantListCount" resultType="int">
+		select
+		count(*) 
+		from ADOPT_WANT
+		where WANT_NO is not null
+		<include refid="search" />
+	</select>
+	
+	<select id="selectAdoptWantByNo" parameterType="str" resultType="want">
+		select
+		*
+		from ADOPT_WANT
+		where WANT_NO=#{wantNo}
+	</select>
+	
+	<insert id="insertAdoptWant" >
+		INSERT INTO ADOPT_WANT (
+		    WANT_NO,
+		    WANT_TITLE,
+		    MEM_ID,
+		    WANT_CONTENT,
+		    WANT_DATE
+		) VALUES (
+		    WANT_NO_SEQ.nextval,
+		    #{wantTitle},
+		    #{memId},
+		    #{wantContent},
+		    SYSDATE
+		)
+	</insert>
+	
+	<delete id="deleteAdoptWant">
+		DELETE FROM ADOPT_WANT
+		 WHERE WANT_NO=#{wantNo}
+	</delete>
+	
+	<update id="updateAdoptWant">
+		UPDATE ADOPT_WANT
+		   SET WANT_TITLE=#{wantTitle},
+		       WANT_CONTENT=#{wantContent}
+		 WHERE WANT_NO=#{wantNo}
+	</update>
+	
+</mapper>

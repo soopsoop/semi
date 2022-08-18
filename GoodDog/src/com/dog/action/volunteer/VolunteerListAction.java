@@ -12,9 +12,9 @@ import com.dog.service.volunteer.VolunteerService;
 
 public class VolunteerListAction implements Action {
 
-	private VolunteerService service;
-	public void setVolunteerService(VolunteerService service) {
-		this.service = service;
+	private VolunteerService volService;
+	public void setVolunteerService(VolunteerService volService) {
+		this.volService = volService;
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public class VolunteerListAction implements Action {
 		}			
 		
 		try {
-			Map<String,Object> dataMap = service.getVolWantMemberList(cri);
+			Map<String,Object> dataMap = volService.getVolWantMemberList(cri);
 			request.setAttribute("dataMap", dataMap);
 		} catch (SQLException e) {
 			e.printStackTrace();

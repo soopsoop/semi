@@ -107,7 +107,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			          		</div>
 		          			
 			          		<div class="col-sm-3 text-center">
-			          			<button type="button" onclick="location.href='dogadapt.do?dogNo=${dog.dogNo}';" id="modifyBtn" class="btn btn-info ">입 양</button>
+			          			<button type="button" onclick="location.href='dogadopt.do?dogNo=${dog.dogNo}';" 
+			          					id="modifyBtn" class="btn btn-info " style="font-size: 80%; height: 100%">입양승인</button>
 			          		</div>
 			          		
 			          		<div class="col-sm-3 text-center">

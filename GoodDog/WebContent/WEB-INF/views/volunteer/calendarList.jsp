@@ -15,6 +15,17 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <meta charset="utf-8">
 <title>봉사목록리스트 화면입니다.</title>
+<style>
+.topImage {
+  width: 100%;
+}
+.topImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin : auto;
+}
+</style>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -89,8 +100,9 @@
 
 	</header>
 <!-- 헤더영역 끝 -->
-
-
+<div class="topImage">
+		<img src="../images/volimg.png" >
+</div>
 </div>
 	<div>
 	<!-- volunteerList Header Start -->
@@ -99,14 +111,6 @@
 				<div class="row md-2">
 					<div class="col-sm-6">
 						<h3>등록된 봉사목록</h3>
-					</div>
-					<div class="col-sm-6">
-						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item"><a href="../main.html"> 
-								<i class="fa fa-dashboard"></i>메인화면
-							</a></li>
-							<li class="breadcrumb-item active">목록</li>
-						</ol>
 					</div>
 				</div>
 			</div>
@@ -117,7 +121,9 @@
 		<section class="content">
 			<div class="card">
 				<div class="card-header with-border">
+				<c:if test="${!empty loginAdmin }">
    				<button type="button" class="btn btn-primary" onclick="OpenWindow('volRegistForm.do','봉사등록',600,700);" >봉사등록</button>
+   				</c:if>
    				<div id="keyword" class="card-tools" style="width:550px;">
    				<div class="input-group row">
    					 	<!-- search bar -->
@@ -125,24 +131,25 @@
 					  		<select class="form-control col-md-3" name="perPageNum" id="perPageNum" onchange="list_go(1);">					  		  		
 					  		<option value="10" ${cri.perPageNum eq 10 ? 'selected' : '' } >정렬개수</option>
 					  		<option value="5" ${cri.perPageNum eq 5 ? 'selected' : '' }>5개씩</option>
+					  		<option value="10" ${cri.perPageNum eq 10 ? 'selected' : '' }>10개씩</option>
 					  	</select>
 					  	
-					  	<!-- search bar -->
-					 	<select class="form-control col-md-3" name="searchType" id="searchType">
-					 		<option value=""  >검색구분</option>
-							<option value="n" ${param.searchType=='i' ? "selected":"" } >봉사명</option>
-							<option value="t" ${param.searchType=='n' ? "selected":"" }>봉사주제</option>
-						</select>
+<!-- 					  	search bar -->
+<!-- 					 	<select class="form-control col-md-3" name="searchType" id="searchType"> -->
+<!-- 					 		<option value=""  >검색구분</option> -->
+<%-- 							<option value="n" ${param.searchType=='i' ? "selected":"" } >봉사명</option> --%>
+<%-- 							<option value="t" ${param.searchType=='n' ? "selected":"" }>봉사주제</option> --%>
+<!-- 						</select> -->
 						
-						<!-- keyword -->
-   					 	<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/>
-						<span class="input-group-append">
-							<button class="btn btn-primary" type="button" 
-									id="searchBtn" data-card-widget="search" onclick="list_go(1);">
-								<i class="fa fa-fw fa-search"></i>
-							</button>
-						</span>
-					<!-- end : search bar -->		
+<!-- 						keyword -->
+<%--    					 	<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/> --%>
+<!-- 						<span class="input-group-append"> -->
+<!-- 							<button class="btn btn-primary" type="button"  -->
+<!-- 									id="searchBtn" data-card-widget="search" onclick="list_go(1);"> -->
+<!-- 								<i class="fa fa-fw fa-search"></i> -->
+<!-- 							</button> -->
+<!-- 						</span> -->
+<!-- 					end : search bar		 -->
    					 </div>
    				</div>   			
    			</div>
@@ -163,7 +170,8 @@
 		     					  <tr onclick = "OpenWindow('detail.do?volTitle=${vol.volTitle}','회원상세',700,800);" style="cursor:pointer;">
 <!-- 		            		  	   	<td style="margin:0;padding:0;padding-top:5px;"> -->
 		            		  	   	<td>${vol.volTitle }</td>
-				              		<td><fmt:formatDate value="${vol.volDate }" pattern="yyyy-MM-dd"/></td>
+<%-- 				              		<td><fmt:formatDate value="${vol.volDate }" pattern="yyyy-MM-dd"/></td> --%>
+				              		<td>${vol.volDate }</td>
 				              		<td>${vol.volType}</td>
            		  	 			</tr>
 		     					
@@ -179,20 +187,31 @@
 		            </table>
     		     </div>
     	       </div> <!-- row -->
-				
-			
-			
 			</div>
 			<!-- end : card-body -->
-			
 			</div>
-		
 		
 		</section>
 		<!-- volunteerList Content End -->
 		
-		
 	</div>
+	
+		<script>
+		function list_go(page, url) {
+			//alert(page);
+			if (!url)
+				url = "calendarList.do";
+
+			var jobForm = $('#jobForm');
+			jobForm.find("[name='page']").val(page);
+			jobForm.find("[name='perPageNum']").val(
+					$('select[name="perPageNum"]').val());
+			jobForm.attr({
+				action : url,
+				method : 'get'
+			}).submit();
+		}
+	</script>
 
 
 	<!-- jQuery -->
