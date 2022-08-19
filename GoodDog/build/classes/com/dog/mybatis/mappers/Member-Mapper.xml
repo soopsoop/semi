@@ -1,0 +1,70 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member-Mapper">
+
+	<sql id="search">	
+		<if test="searchType == 'i'.toString()">
+			and id like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'p'.toString()">
+			and phone like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'e'.toString()">
+			and email like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'n'.toString()">
+			and name like '%'||#{keyword}||'%'			
+		</if>			
+	</sql>	
+	
+	<select id="selectMemberList" resultType="member">
+		select
+		* 
+		from member
+		where MEM_ID is not null
+		<include refid="search" />
+		order by MEM_JOIN_DATE desc
+	</select>
+	<select id="selectMemberListCount" resultType="int">
+		select
+		count(*) 
+		from member
+		where id is not null
+		<include refid="search" />
+	</select>
+	<select id="selectMemberById" parameterType="str" resultType="member">
+		select
+		*
+		from member
+		where MEM_ID=#{memId}
+	</select>
+	
+	<update id="insertMember" parameterType="member">
+        insert into 
+        member(mem_Id, mem_Pw, mem_Name, mem_Gender, mem_Reg_No, mem_Mail, mem_Phone, mem_Addr, mem_Join_Date)
+        values(#{memId},#{memPw},#{memName},#{memGender},#{memRegNo},#{memMail},#{memPhone},#{memAddr}, sysdate)
+    </update>
+    
+    <update id="updateMember" parameterType="member">
+		update member 
+		set 
+		mem_Pw=#{memPw},mem_Mail=#{memMail},mem_Phone=#{memPhone},mem_Name=#{memName}
+		
+		where MEM_ID=#{memId}
+	</update>
+	
+	
+	<update id="deleteMember" parameterType="str" >
+		delete 
+		from member 
+		where MEM_ID=#{memId}		
+	</update>
+	
+	<select id="findMemberById" parameterType="str" resultType="member">
+	    SELECT mem_id 
+	    FROM member 
+	    WHERE MEM_NAME=#{memName}, mem_mail=#{memMail}
+    </select>
+</mapper>
